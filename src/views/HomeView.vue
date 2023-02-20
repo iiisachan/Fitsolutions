@@ -18,6 +18,10 @@
     gap: 2rem;
     margin: 2.2rem 2.2rem;
     font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 600;
+    color: #3a751c;
   }
 
   .logo-quote {
@@ -29,6 +33,16 @@
     width: 10em;
     margin: auto;
   }
+
+  @media (max-width: 408px) {
+    .log-in-container {
+      flex-direction: row;
+    }
+
+    .btn-container {
+      gap: 20px;
+    }
+  }
 </style>
 
 <template>
@@ -38,12 +52,10 @@
     <div class="log-in-container">
       <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
       <b-button-toolbar justify class="btn-container">
-        <b-button class="btn" squared variant="outline-success"
+        <b-button class="mx-1 btn" variant="outline-success"
           >Kom igång</b-button
         >
-        <b-button class="btn" squared variant="outline-success"
-          >Logga in</b-button
-        >
+        <b-button class="mx-1 btn" variant="outline-success">Logga in</b-button>
       </b-button-toolbar>
     </div>
   </main>
