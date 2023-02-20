@@ -7,7 +7,6 @@
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
 
   .main-img {
-    margin-top: 3rem;
     width: 100%;
     height: auto;
   }

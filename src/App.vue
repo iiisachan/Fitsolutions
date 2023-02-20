@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <b-navbar fixed="top" toggleable="sm" variant="white">
+  <b-navbar sticky="top" toggleable="sm" variant="white">
     <b-navbar-brand to="/">
       <img src="../assets/logo.png" alt="logo" />
     </b-navbar-brand>
@@ -22,6 +22,7 @@
         <b-nav-item to="/"> Hem </b-nav-item>
         <b-nav-item to="/about"> Om </b-nav-item>
         <b-nav-item to="/contact"> Kontakt </b-nav-item>
+        <b-nav-item to="/login">LogIn</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
