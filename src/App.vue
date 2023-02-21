@@ -20,6 +20,7 @@
     })
   })
 
+  // eslint-disable-next-line no-unused-vars
   const handleSignOut = () => {
     signOut(auth).then(() => {
       router.push('/')
