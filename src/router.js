@@ -5,7 +5,7 @@ import ContactView from './views/ContactView.vue'
 import HomeView from './views/HomeView.vue'
 import LogInView from './views/LogInView.vue'
 import RegisterView from './views/RegisterView.vue'
-import ProfileView from './views/ProfileView'
+import ProfileView from './views/ProfileView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),

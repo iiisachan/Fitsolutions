@@ -42,6 +42,8 @@
   }
 </script>
 
+<style lang="scss"></style>
+
 <template>
   <b-navbar sticky="top" toggleable="sm" variant="white">
     <b-navbar-brand to="/">
