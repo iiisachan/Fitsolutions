@@ -34,21 +34,44 @@
 </script>
 
 <style>
-  .login-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  .container {
+    max-width: 50vw;
+  }
+
+  .submit-button {
+    margin-top: 20px;
+  }
+
+  .register-button {
+    margin-top: 20px;
+    margin-left: 20px;
   }
 </style>
 
 <template>
-  <div class="login-div">
-    <h1>Sign in to an Account</h1>
-    <p><input type="text" placeholder="Email" v-model="email" /></p>
-    <p><input type="password" placeholder="Password" v-model="password" /></p>
-    <p v-if="errMsg">{{ errMsg }}</p>
-    <b-button variant="success" @click="register">Submit</b-button>
-    <b-button variant="success" to="/register">Register</b-button>
+  <h1>Sign in to an Account</h1>
+  <div md="6" class="container justify-content-center">
+    <b-form-group
+      id="fieldset-1"
+      description="Skriv in en giltig email adress."
+      label="Email"
+      label-for="input-1"
+      valid-feedback="Tack!"
+    />
+    <b-form-input id="input-1" v-model="email" />
+    <b-form-group
+      id="fieldset-2"
+      description="Ange ett lösenord"
+      label="Lösenord"
+      label-for="input-2"
+      valid-feedback="Tack!"
+    />
+    <b-form-input id="input-2" v-model="password" />
+    <b-button class="submit-button" variant="success" @click="register"
+      >Submit</b-button
+    >
+    <b-button class="register-button" variant="success" to="/register"
+      >Register</b-button
+    >
   </div>
 </template>
