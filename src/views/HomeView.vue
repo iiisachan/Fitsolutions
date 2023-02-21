@@ -46,11 +46,6 @@
     justify-content: center;
   }
 
-  .btn {
-    width: 10em;
-    margin: auto;
-  }
-
   @media (max-width: 408px) {
     .btn-container {
       gap: 20px;
@@ -72,10 +67,12 @@
     <div class="log-in-container">
       <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
       <b-button-toolbar justify class="btn-container">
-        <b-button class="mx-1 btn" variant="outline-success"
+        <b-button to="/register" class="mx-1 btn" variant="success"
           >Kom igång</b-button
         >
-        <b-button class="mx-1 btn" variant="outline-success">Logga in</b-button>
+        <b-button to="/login" class="mx-1 btn" variant="success"
+          >Logga in</b-button
+        >
       </b-button-toolbar>
     </div>
     <h2 id="information-text">Aktuellt</h2>

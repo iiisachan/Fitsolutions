@@ -1,6 +1,29 @@
 <script>
+  import { onMounted, ref } from 'vue'
+  import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth'
+  import router from './router'
+
   export default {
     components: {}
+  }
+
+  const isLoggedIn = ref(false)
+  let auth
+  onMounted(() => {
+    auth = getAuth()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        isLoggedIn.value = true
+      } else {
+        isLoggedIn.value = false
+      }
+    })
+  })
+
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      router.push('/')
+    })
   }
 </script>
 
@@ -23,6 +46,7 @@
         <b-nav-item to="/about"> Om </b-nav-item>
         <b-nav-item to="/contact"> Kontakt </b-nav-item>
         <b-nav-item to="/login">LogIn</b-nav-item>
+        <button v-if="isLoggedIn" @click="handleSignOut">Sign Out</button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
