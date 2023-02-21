@@ -2,12 +2,15 @@
   import CitiesList from './components/CitiesList.vue'
   import CounterButton from './components/CounterButton.vue'
   import HelloWorld from './components/HelloWorld.vue'
+  import ContactUs from './components/ContactUs.vue'
 
   export default {
     components: {
       CitiesList,
       CounterButton,
-      HelloWorld
+      HelloWorld,
+      ContactUs
+
     }
   }
 </script>
@@ -29,6 +32,7 @@
   <HelloWorld msg="Hello World!" />
   <CitiesList />
   <CounterButton />
+  <ContactUs />
   <main>
     <RouterView />
   </main>
