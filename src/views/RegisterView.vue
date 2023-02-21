@@ -3,6 +3,8 @@
   import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
   const email = ref('')
   const password = ref('')
+  const nuvarandeVikt = ref('')
+  const målVikt = ref('')
 
   const register = () => {
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
@@ -19,19 +21,65 @@
 
 <style>
   .register-div {
+    justify-content: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 10px;
+  }
+
+  .input {
+    padding: 20px 10px;
+    width: 100%;
+    border-radius: 100px;
+    border: 2px solid;
+  }
+  .label {
+    padding: 10px 5px;
+    margin-right: 50rem;
+    margin-top: 2px;
+    font-size: large;
+    font-weight: bold;
+  }
+  h1 {
+    text-align: center;
+  }
+  .Buttons {
+    display: flex;
+    flex-direction: columns;
+    max-width: 140px;
+    margin: 20px auto;
+    justify-content: center;
+    padding: 10px;
+  }
+  .form {
+    width: 40vw;
+    margin: auto;
   }
 </style>
 
 <template>
-  <div class="register-div">
-    <h1>Register an Account</h1>
-    <p><input type="text" placeholder="Email" v-model="email" /></p>
-    <p><input type="password" placeholder="Password" v-model="password" /></p>
-    <b-button variant="success" @click="register">Submit</b-button>
-    <b-button variant="success" to="/login">Logga in</b-button>
+  <div class="register-div container">
+    <b-container>
+      <b-row>
+        <form class="form">
+          <h1>Registrera dig</h1>
+
+          <label for="email" class="label">Email</label>
+          <input class="input" type="text" required v-model="email" />
+          <label for="password" class="label">Lösenord</label>
+          <input class="input" type="password" required v-model="password" />
+          <label for="nuvarandeVikt" class="label">Nuvarande vikt</label>
+          <input class="input" type="text" required v-model="nuvarandeVikt" />
+          <label for="målVikt" class="label">Mål vikt</label>
+          <input class="input" type="text" required v-model="målVikt" />
+          <b-button class="Buttons" variant="success" to="/" @click="register"
+            >Submit</b-button
+          >
+          <b-button class="Buttons" variant="success" to="/login"
+            >Logga in</b-button
+          >
+        </form>
+      </b-row>
+    </b-container>
   </div>
 </template>
