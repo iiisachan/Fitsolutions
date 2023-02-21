@@ -64,10 +64,13 @@
         <b-nav-item to="/"> Hem </b-nav-item>
         <b-nav-item to="/about"> Om </b-nav-item>
         <b-nav-item to="/contact"> Kontakt </b-nav-item>
-        <b-nav-item to="/login">Logga in</b-nav-item>
+        <b-nav-item v-if="isLoggedIn === false" to="/login"
+          >Logga in</b-nav-item
+        >
         <b-nav-item v-if="isLoggedIn" @click="handleSignOut"
           >Sign Out</b-nav-item
         >
+        <b-nav-item v-if="isLoggedIn" to="/profile">Profile</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
