@@ -31,15 +31,24 @@
         alert(error.message)
       })
   }
-
-  const signInWithGoogle = () => {}
 </script>
 
+<style>
+  .login-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+
 <template>
-  <h1>Sign in to an Account</h1>
-  <p><input type="text" placeholder="Email" v-model="email" /></p>
-  <p><input type="password" placeholder="Password" v-model="password" /></p>
-  <p v-if="errMsg">{{ errMsg }}</p>
-  <p><button @click="register">Submit</button></p>
-  <p><button @click="signInWithGoogle">Sign In With Google</button></p>
+  <div class="login-div">
+    <h1>Sign in to an Account</h1>
+    <p><input type="text" placeholder="Email" v-model="email" /></p>
+    <p><input type="password" placeholder="Password" v-model="password" /></p>
+    <p v-if="errMsg">{{ errMsg }}</p>
+    <b-button variant="success" @click="register">Submit</b-button>
+    <b-button variant="success" to="/register">Register</b-button>
+  </div>
 </template>

@@ -1,11 +1,7 @@
-<script>
+<script setup>
   import { onMounted, ref } from 'vue'
   import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth'
   import router from './router'
-
-  export default {
-    components: {}
-  }
 
   const isLoggedIn = ref(false)
   let auth
@@ -47,7 +43,9 @@
         <b-nav-item to="/about"> Om </b-nav-item>
         <b-nav-item to="/contact"> Kontakt </b-nav-item>
         <b-nav-item to="/login">LogIn</b-nav-item>
-        <button v-if="isLoggedIn" @click="handleSignOut">Sign Out</button>
+        <b-nav-item v-if="isLoggedIn" @click="handleSignOut"
+          >Sign Out</b-nav-item
+        >
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

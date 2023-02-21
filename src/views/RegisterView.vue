@@ -15,14 +15,23 @@
         alert(error.message)
       })
   }
-
-  const signInWithGoogle = () => {}
 </script>
 
+<style>
+  .register-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+
 <template>
-  <h1>Register an Account</h1>
-  <p><input type="text" placeholder="Email" v-model="email" /></p>
-  <p><input type="password" placeholder="Password" v-model="password" /></p>
-  <p><button @click="register">Submit</button></p>
-  <p><button @click="signInWithGoogle">Sign In With Google</button></p>
+  <div class="register-div">
+    <h1>Register an Account</h1>
+    <p><input type="text" placeholder="Email" v-model="email" /></p>
+    <p><input type="password" placeholder="Password" v-model="password" /></p>
+    <b-button variant="success" @click="register">Submit</b-button>
+    <b-button variant="success" to="/login">Logga in</b-button>
+  </div>
 </template>
