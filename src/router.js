@@ -5,6 +5,7 @@ import ContactView from './views/ContactView.vue'
 import HomeView from './views/HomeView.vue'
 import LogInView from './views/LogInView.vue'
 import RegisterView from './views/RegisterView.vue'
+import ProfileView from './views/ProfileView'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -28,6 +29,10 @@ export default createRouter({
     {
       component: RegisterView,
       path: '/register'
+    },
+    {
+      component: ProfileView,
+      path: '/profile'
     }
   ]
 })
