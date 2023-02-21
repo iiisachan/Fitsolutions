@@ -1,39 +1,69 @@
-<script>
-  import CitiesList from './components/CitiesList.vue'
-  import CounterButton from './components/CounterButton.vue'
-  import HelloWorld from './components/HelloWorld.vue'
-  import ContactUs from './components/ContactUs.vue'
 
-  export default {
-    components: {
-      CitiesList,
-      CounterButton,
-      HelloWorld,
-      ContactUs
+<script setup>
+  import { onMounted, ref } from 'vue'
+  import { getAuth, onAuthStateChanged, signOut } from '@firebase/auth'
+  import router from './router'
 
-    }
+  const isLoggedIn = ref(false)
+  let auth
+  onMounted(() => {
+    auth = getAuth()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        isLoggedIn.value = true
+      } else {
+        isLoggedIn.value = false
+      }
+    })
+  })
+
+  // eslint-disable-next-line no-unused-vars
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      router.push('/')
+    })
+
   }
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <li>
-        <RouterLink to="/">Hem</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/about">Om</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/contact">Kontakt</RouterLink>
-      </li>
-    </ul>
-  </nav>
-  <HelloWorld msg="Hello World!" />
-  <CitiesList />
-  <CounterButton />
-  <ContactUs />
+
+
+  
+
+  <b-navbar sticky="top" toggleable="sm" variant="white">
+    <b-navbar-brand to="/">
+      <img src="../assets/logo.png" alt="logo" />
+    </b-navbar-brand>
+
+    <b-navbar-toggle target="navbar-collapse">
+      <template #default="{ expanded }">
+        <font-awesome-icon v-if="expanded" icon="fa-solid fa-xmark" />
+        <font-awesome-icon v-else icon="fa-solid fa-bars" />
+      </template>
+    </b-navbar-toggle>
+
+    <b-collapse is-nav id="navbar-collapse" class="m-1">
+      <b-navbar-nav justified="true">
+        <b-nav-item to="/"> Hem </b-nav-item>
+        <b-nav-item to="/about"> Om </b-nav-item>
+        <b-nav-item to="/contact"> Kontakt </b-nav-item>
+        <b-nav-item to="/login">LogIn</b-nav-item>
+        <b-nav-item v-if="isLoggedIn" @click="handleSignOut"
+          >Sign Out</b-nav-item
+        >
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+
+
   <main>
     <RouterView />
   </main>
 </template>
+
+<style>
+  .navbar-toggler {
+    border: none;
+  }
+</style>
