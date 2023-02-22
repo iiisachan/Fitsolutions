@@ -86,6 +86,7 @@
             class="btn text-white btn-floating m-1"
             style="background-color: #3b5998"
             href="https://www.facebook.com"
+            target="_blank"
             role="button"
             ><i class="fab fa-facebook-f">
               <font-awesome-icon icon="fab fa-facebook" /> </i
@@ -96,6 +97,7 @@
             class="btn text-white btn-floating m-1"
             style="background-color: #55acee"
             href="https://www.twitter.com"
+            target="_blank"
             role="button"
             ><i class="fab fa-twitter">
               <font-awesome-icon icon="fab fa-twitter" /> </i
@@ -106,6 +108,7 @@
             class="btn text-white btn-floating m-1"
             style="background-color: #ac2bac"
             href="https://www.instagram.com"
+            target="_blank"
             role="button"
             ><i class="fab fa-instagram">
               <font-awesome-icon icon="fab fa-instagram" /> </i
@@ -115,6 +118,7 @@
           -->
           <a
             href="https://www.google.com"
+            target="_blank"
             class="btn text-white btn-floating m-1"
             style="background-color: #dd4b39"
             role="button"
