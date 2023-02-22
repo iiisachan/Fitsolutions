@@ -32,12 +32,14 @@
             <b-form-group label="Meddelande">
               <b-form-textarea v-model="message" rows="10" />
             </b-form-group>
-            <b-button variant="success" @click="submitForm">Skicka</b-button>
+            <b-button class="submit-btn" variant="success" @click="submitForm"
+              >Skicka</b-button
+            >
           </b-form>
         </b-card>
       </b-col>
     </b-row>
-    <div v-if="formIsValid" class="valid-form">
+    <div v-if="formIsValid" class="valid-form-msg">
       <h3>Tack för ditt meddelande!</h3>
     </div>
     <b-row>
@@ -102,7 +104,7 @@
       },
       isEmailValid(email) {
         const emailRegex =
-          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         return emailRegex.test(email)
       }
     }
@@ -111,17 +113,14 @@
 
 <style>
   .contact-page {
-    margin-top: 30px;
-    margin-bottom: 80px;
-  }
-
-  .contact-form h2 {
-    margin-bottom: 40px;
+    margin: 40px auto;
+    min-width: 370px;
   }
 
   .opening-times {
-    margin-bottom: 30px;
-    height: 300px;
+    padding: 30px 0;
+    margin-bottom: 40px;
+    min-height: 300px;
     text-align: center;
   }
 
@@ -129,14 +128,17 @@
     margin-top: 20px;
   }
 
-  .phone {
-    margin-top: 40px;
+  .contact-form h2 {
+    margin-bottom: 40px;
   }
 
-  .fullname {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 40px;
+  .submit-btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .phone {
+    margin-top: 40px;
   }
 
   .has-errors {
@@ -157,20 +159,41 @@
     padding: 0;
   }
 
-  .valid-form {
+  .valid-form-msg {
     text-align: center;
     margin-top: 40px;
   }
 
-  @media (min-width: 979px) {
-    .contact-form,
+  @media (min-width: 375px) {
+    .contact-page {
+      margin: 40px auto;
+      min-width: 80%;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .contact-page,
     .opening-times {
-      height: 650px;
-      margin-top: 50px;
+      height: 100%;
+    }
+
+    .opening-times {
+      position: relative;
     }
 
     .open-details {
-      margin-top: 25%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (min-width: 980px) {
+    .fullname {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 20px;
     }
   }
 </style>
