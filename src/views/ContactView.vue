@@ -104,7 +104,7 @@
       },
       isEmailValid(email) {
         const emailRegex =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         return emailRegex.test(email)
       }
     }
@@ -115,6 +115,7 @@
   .contact-page {
     margin: 40px auto;
     min-width: 370px;
+    width: 100%;
   }
 
   .opening-times {
@@ -193,7 +194,7 @@
     .fullname {
       display: grid;
       grid-template-columns: auto auto;
-      gap: 20px;
+      gap: 10px;
     }
   }
 </style>
