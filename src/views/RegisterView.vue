@@ -73,7 +73,7 @@
           <label for="målVikt" class="label">Mål vikt</label>
           <input class="input" type="text" required v-model="målVikt" />
           <b-button class="Buttons" variant="success" to="/" @click="register"
-            >Submit</b-button
+            >Registrera</b-button
           >
           <b-button class="Buttons" variant="success" to="/login"
             >Logga in</b-button
