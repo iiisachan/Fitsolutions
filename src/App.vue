@@ -78,9 +78,60 @@
   <main>
     <RouterView />
   </main>
+  <footer class="bg-light text-center text-white" id="footer-container">
+    <div>
+      <div class="row">
+        <div class="col">
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #3b5998"
+            href="https://www.facebook.com"
+            role="button"
+            ><i class="fab fa-facebook-f">
+              <font-awesome-icon icon="fab fa-facebook" /> </i
+          ></a>
+        </div>
+        <div class="col">
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #55acee"
+            href="https://www.twitter.com"
+            role="button"
+            ><i class="fab fa-twitter">
+              <font-awesome-icon icon="fab fa-twitter" /> </i
+          ></a>
+        </div>
+        <div class="col">
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #ac2bac"
+            href="https://www.instagram.com"
+            role="button"
+            ><i class="fab fa-instagram">
+              <font-awesome-icon icon="fab fa-instagram" /> </i
+          ></a>
+        </div>
+        <div class="col">
+          -->
+          <a
+            href="https://www.google.com"
+            class="btn text-white btn-floating m-1"
+            style="background-color: #dd4b39"
+            role="button"
+            ><i class="fab fa-google">
+              <font-awesome-icon icon="fa-brands fa-google" /></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <style>
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
   .navbar-toggler {
     border: none;
   }
@@ -96,5 +147,21 @@
   .navbar {
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     font-weight: 600;
+  }
+
+  #footer-container {
+    height: 65px;
+    border-bottom: 2px solid;
+    margin: 10px 0px auto;
+    background-color: light;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 6px 3px;
+    bottom: 0;
+  }
+  main {
+    position: relative;
+    min-height: 100vh;
   }
 </style>
