@@ -2,6 +2,7 @@
   import { ref } from 'vue'
   import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
   import router from '../router'
+
   const email = ref('')
   const password = ref('')
   const errMsg = ref()
