@@ -1,4 +1,5 @@
 <!-- <a href="https://www.flaticon.com/free-icons/muscle" title="muscle icons">Muscle icons created by Anggre Tionanda - Flaticon</a> -->
+<!-- <a href="https://www.flaticon.com/free-icons/random" title="random icons">Random icons created by KP Arts - Flaticon</a> -->
 
 <script>
   export default {}
@@ -71,6 +72,7 @@
 
   .card-img-top {
     padding: 1rem;
+    object-fit: cover;
   }
 
   .title {
