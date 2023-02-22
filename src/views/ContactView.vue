@@ -1,5 +1,5 @@
 <template>
-  <div class="container contact-page">
+  <div class="contact-page">
     <b-row>
       <b-col md="6">
         <b-card class="opening-times border border-dark">
@@ -115,7 +115,6 @@
   .contact-page {
     margin: 40px auto;
     min-width: 370px;
-    width: 100%;
   }
 
   .opening-times {
@@ -194,7 +193,7 @@
     .fullname {
       display: grid;
       grid-template-columns: auto auto;
-      gap: 10px;
+      gap: 20px;
     }
   }
 </style>
