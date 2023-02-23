@@ -4,7 +4,8 @@
   import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
   const email = ref('')
   const password = ref('')
-  const register = () => {
+  const register = (cWeight, gWeight) => {
+    console.log(cWeight, gWeight + ' Du har loggat din vikt!')
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
       // eslint-disable-next-line no-unused-vars
       .then((data) => {
@@ -50,7 +51,7 @@
           return this.$store.state.goalWeight
         },
         set(weight) {
-          this.$store.commit('addNewWeight', weight)
+          this.$store.commit('addNewWeight2', weight)
         }
       }
     }
@@ -111,7 +112,10 @@
           <input class="input" type="text" v-model="cWeight" />
           <label for="målVikt" class="label">Mål vikt</label>
           <input class="input" type="text" v-model="gWeight" />
-          <b-button class="Buttons" variant="success" @click="register"
+          <b-button
+            class="Buttons"
+            variant="success"
+            @click="register(cWeight, gWeight)"
             >Registrera</b-button
           >
           <b-button class="Buttons" variant="success" to="/login"
