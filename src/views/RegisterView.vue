@@ -1,19 +1,19 @@
 <script setup>
   import { ref } from 'vue'
   import { useStore } from 'vuex'
-  // import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+  import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
   const email = ref('')
   const password = ref('')
   const register = () => {
-    // createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-    //   // eslint-disable-next-line no-unused-vars
-    //   .then((data) => {
-    //     console.log('Sucessfully Registered!')
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.code)
-    //     alert(error.message)
-    //   })
+    createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+      // eslint-disable-next-line no-unused-vars
+      .then((data) => {
+        console.log('Sucessfully Registered!')
+      })
+      .catch((error) => {
+        console.log(error.code)
+        alert(error.message)
+      })
   }
 </script>
 
