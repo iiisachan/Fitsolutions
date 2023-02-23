@@ -60,28 +60,16 @@
 
 <style>
   .register-div {
-    max-height: 100%;
+    max-width: 50vw;
     justify-content: center;
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
 
-  .input {
-    padding: 20px 10px;
-    width: 100%;
-    border-radius: 100px;
-    border: 2px solid;
-  }
-  .label {
-    padding: 10px 5px;
-    margin-right: 50rem;
-    margin-top: 2px;
-    font-size: large;
-    font-weight: bold;
-  }
   h1 {
     text-align: center;
+    margin: 50px 0;
   }
   .Buttons {
     display: flex;
@@ -90,10 +78,6 @@
     margin: 20px auto;
     justify-content: center;
     padding: 10px;
-  }
-  .form {
-    width: 40vw;
-    margin: 10px auto;
   }
 </style>
 
