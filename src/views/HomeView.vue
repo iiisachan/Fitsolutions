@@ -29,6 +29,24 @@
     width: 100%;
     height: auto;
   }
+  .log-in-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 2.2rem 2.2rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 600;
+    color: #3a751c;
+  }
+
+  @media (max-width: 408px) {
+    .btn-container {
+      gap: 20px;
+    }
+  }
 </style>
 
 <template>

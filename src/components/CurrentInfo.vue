@@ -55,19 +55,6 @@
   /* IMPORTS/FONTS */
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
 
-  .log-in-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin: 2.2rem 2.2rem;
-    font-family: 'Source Sans Pro', sans-serif;
-    text-transform: uppercase;
-    font-style: italic;
-    font-weight: 600;
-    color: #3a751c;
-  }
-
   .logo-quote {
     font-weight: 500;
     font-size: 40px;
@@ -88,12 +75,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
-
-  @media (max-width: 408px) {
-    .btn-container {
-      gap: 20px;
-    }
   }
 
   @media (max-width: 800px) {
