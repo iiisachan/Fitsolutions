@@ -2,6 +2,7 @@
   import { ref } from 'vue'
   import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
   import router from '../router'
+
   const email = ref('')
   const password = ref('')
   const errMsg = ref()
@@ -66,9 +67,9 @@
       label-for="input-2"
       valid-feedback="Tack!"
     />
-    <b-form-input id="input-2" v-model="password" />
+    <b-form-input type="password" id="input-2" v-model="password" />
     <b-button class="submit-button" variant="success" @click="register"
-      >Submit</b-button
+      >Logga in</b-button
     >
     <b-button class="register-button" variant="success" to="/register"
       >Register</b-button
