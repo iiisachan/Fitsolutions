@@ -21,10 +21,11 @@
 
 <style>
   .register-div {
+    max-height: 100%;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
   }
 
   .input {
@@ -53,7 +54,7 @@
   }
   .form {
     width: 40vw;
-    margin: auto;
+    margin: 10px auto;
   }
 </style>
 
