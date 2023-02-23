@@ -74,7 +74,10 @@
   <main>
     <RouterView />
   </main>
-  <footer class="bg-light text-center text-white" id="footer-container">
+  <footer
+    class="bg-light container-fluid text-center text-white"
+    id="footer-container"
+  >
     <div>
       <div class="row">
         <div class="col">
@@ -111,7 +114,6 @@
           ></a>
         </div>
         <div class="col">
-          -->
           <a
             href="https://www.google.com"
             target="_blank"
@@ -157,7 +159,7 @@
     text-align: center;
     color: white;
     width: 100%;
-    padding: 6px 3px;
+    padding: 10px;
     bottom: 0;
   }
   main {

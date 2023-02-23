@@ -1,8 +1,8 @@
 <template>
-  <div class="contact-page">
-    <b-row>
-      <b-col md="6">
-        <b-card class="opening-times border border-dark">
+  <div class="contact-page-wrapper">
+    <div class="horizontal-container">
+      <div class="vertical-container">
+        <div class="opening-times">
           <div class="open-details">
             <h2>Öppettider</h2>
             <p>Måndag - Fredag: 07:00 - 21:00</p>
@@ -12,33 +12,33 @@
               <p>031-12 34 56</p>
             </div>
           </div>
-        </b-card>
-      </b-col>
-      <b-col md="6">
-        <b-card class="contact-form border border-dark">
+        </div>
+      </div>
+      <div class="vertical-container">
+        <div class="contact-form">
           <h2>Kontakta oss</h2>
           <b-form>
             <div class="fullname">
               <b-form-group label="Förnamn">
-                <b-form-input v-model="firstName" />
+                <b-form-input class="form-input" v-model="firstName" />
               </b-form-group>
               <b-form-group label="Efteramn">
-                <b-form-input v-model="lastName" />
+                <b-form-input class="form-input" v-model="lastName" />
               </b-form-group>
             </div>
             <b-form-group label="Email">
-              <b-form-input v-model="email" />
+              <b-form-input class="form-input" v-model="email" />
             </b-form-group>
             <b-form-group label="Meddelande">
-              <b-form-textarea v-model="message" rows="10" />
+              <b-form-textarea class="form-input" v-model="message" rows="10" />
             </b-form-group>
             <b-button class="submit-btn" variant="success" @click="submitForm"
               >Skicka</b-button
             >
           </b-form>
-        </b-card>
-      </b-col>
-    </b-row>
+        </div>
+      </div>
+    </div>
     <div v-if="formIsValid" class="valid-form-msg">
       <h3>Tack för ditt meddelande!</h3>
     </div>
@@ -112,42 +112,91 @@
 </script>
 
 <style>
-  .contact-page {
-    margin: 40px auto;
-    min-width: 370px;
+  .contact-page-wrapper {
+    margin: 20px 0;
+    min-width: 300px;
+    width: 80%;
+  }
+
+  .horizontal-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .vertical-container {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 70px;
+    padding-left: 70px;
   }
 
   .opening-times {
-    padding: 30px 0;
-    margin-bottom: 40px;
+    padding: 20px 0;
+    margin-bottom: 30px;
     min-height: 300px;
+    border: 1px solid #000;
+    position: relative;
+    border-radius: 10px;
     text-align: center;
   }
 
+  .open-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   .opening-times p {
-    margin-top: 20px;
+    margin-top: 10px;
+  }
+
+  .contact-form {
+    padding-left: 50px;
+    padding-right: 50px;
+    min-height: 200px;
+    border: 1px solid #000;
+    border-radius: 10px;
   }
 
   .contact-form h2 {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .form-input {
+    border: 1px solid #000;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 150px;
+  }
+
+  .form-input:focus {
+    outline: none;
   }
 
   .submit-btn {
     width: 100%;
-    margin: 5px 0;
+    margin: 10px 0;
   }
 
   .phone {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .has-errors {
-    border: 3px solid red;
+    border: 4px solid red;
   }
 
   .error-messages {
     margin-top: 30px;
-    padding-left: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
   }
 
   .error-messages p {
@@ -157,43 +206,74 @@
 
   .error-messages ul {
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .valid-form-msg {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   @media (min-width: 375px) {
-    .contact-page {
-      margin: 40px auto;
-      min-width: 80%;
+    .contact-page-wrapper {
+      margin: 20px 10px;
+      width: 100%;
+    }
+
+    .opening-details {
+      margin: 0 auto;
     }
   }
 
   @media (min-width: 767px) {
-    .contact-page,
+    .contact-page-wrapper,
     .opening-times {
       height: 100%;
     }
 
-    .opening-times {
-      position: relative;
+    .vertical-container {
+      margin-bottom: 10px;
     }
+  }
 
-    .open-details {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  @media (max-width: 979px) {
+    .error-messages {
+      margin: 40px 60px;
     }
   }
 
   @media (min-width: 980px) {
+    .contact-page-wrapper {
+      padding-left: 70px;
+      padding-right: 70px;
+    }
+
     .fullname {
       display: grid;
       grid-template-columns: auto auto;
       gap: 20px;
+    }
+
+    .horizontal-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .vertical-container {
+      flex: 1;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .opening-times {
+      margin-right: 15px;
+    }
+
+    .error-messages {
+      margin-left: 15px;
+      margin-right: 15px;
     }
   }
 </style>
