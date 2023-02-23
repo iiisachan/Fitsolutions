@@ -175,6 +175,10 @@
     min-width: 150px;
   }
 
+  .form-input:focus {
+    outline: none;
+  }
+
   .submit-btn {
     width: 100%;
     margin: 10px 0;
@@ -185,13 +189,14 @@
   }
 
   .has-errors {
-    border: 2px solid red;
+    border: 4px solid red;
   }
 
   .error-messages {
     margin-top: 30px;
     padding-left: 30px;
     padding-right: 30px;
+    border-radius: 10px;
   }
 
   .error-messages p {
@@ -240,6 +245,11 @@
   }
 
   @media (min-width: 980px) {
+    .contact-page-wrapper {
+      padding-left: 70px;
+      padding-right: 70px;
+    }
+
     .fullname {
       display: grid;
       grid-template-columns: auto auto;
@@ -259,10 +269,6 @@
 
     .opening-times {
       margin-right: 15px;
-    }
-
-    .contact-form {
-      margin-left: 15px;
     }
 
     .error-messages {
