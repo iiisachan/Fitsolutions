@@ -1,21 +1,59 @@
 <script setup>
   import { ref } from 'vue'
-  import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+  import { useStore } from 'vuex'
+  // import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
   const email = ref('')
   const password = ref('')
-  const nuvarandeVikt = ref('')
-  const målVikt = ref('')
-
   const register = () => {
-    createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-      // eslint-disable-next-line no-unused-vars
-      .then((data) => {
-        console.log('Sucessfully Registered!')
-      })
-      .catch((error) => {
-        console.log(error.code)
-        alert(error.message)
-      })
+    // createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+    //   // eslint-disable-next-line no-unused-vars
+    //   .then((data) => {
+    //     console.log('Sucessfully Registered!')
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.code)
+    //     alert(error.message)
+    //   })
+  }
+</script>
+
+<script>
+  export default {
+    setup() {
+      const store = useStore()
+      return store.state.currentWeight
+    },
+    data() {
+      return {
+        newWeight: 0
+      }
+    },
+    computed: {
+      cWeight: {
+        get() {
+          return this.$store.state.currentWeight
+        },
+        set(weight) {
+          this.$store.commit('addNewWeight', weight)
+        }
+      },
+      nWeight: {
+        get() {
+          return this.$store.state.newWeight
+        },
+        set(weight) {
+          this.$store.commit('addNewWeight', weight)
+        }
+      },
+      gWeight: {
+        get() {
+          return this.$store.state.goalWeight
+        },
+        set(weight) {
+          this.$store.commit('addNewWeight', weight)
+        }
+      }
+    }
   }
 </script>
 
@@ -69,10 +107,10 @@
           <label for="password" class="label">Lösenord</label>
           <input class="input" type="password" required v-model="password" />
           <label for="nuvarandeVikt" class="label">Nuvarande vikt</label>
-          <input class="input" type="text" required v-model="nuvarandeVikt" />
+          <input class="input" type="text" v-model="cWeight" />
           <label for="målVikt" class="label">Mål vikt</label>
-          <input class="input" type="text" required v-model="målVikt" />
-          <b-button class="Buttons" variant="success" to="/" @click="register"
+          <input class="input" type="text" v-model="gWeight" />
+          <b-button class="Buttons" variant="success" @click="register"
             >Registrera</b-button
           >
           <b-button class="Buttons" variant="success" to="/login"
