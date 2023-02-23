@@ -175,10 +175,6 @@
     min-width: 150px;
   }
 
-  .form-input:focus {
-    outline: none;
-  }
-
   .submit-btn {
     width: 100%;
     margin: 10px 0;
@@ -227,44 +223,28 @@
     }
   }
 
-  @media (min-width: 767px) {
-    .contact-page-wrapper,
-    .opening-times {
-      height: 100%;
-    }
-
-    .vertical-container {
-      margin-bottom: 10px;
-    }
-  }
-
-  @media (max-width: 979px) {
-    .error-messages {
-      margin: 40px 60px;
-    }
-  }
-
-  @media (min-width: 980px) {
-    .contact-page-wrapper {
-      padding-left: 70px;
-      padding-right: 70px;
-    }
-
+  @media (min-width: 650px) {
     .fullname {
       display: grid;
       grid-template-columns: auto auto;
       gap: 20px;
     }
+  }
 
-    .horizontal-container {
-      display: flex;
-      flex-wrap: wrap;
+  @media (min-width: 767px) {
+    .opening-times {
+      height: 100%;
     }
 
     .vertical-container {
-      flex: 1;
-      padding-left: 30px;
-      padding-right: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (min-width: 980px) {
+    .horizontal-container {
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .opening-times {
