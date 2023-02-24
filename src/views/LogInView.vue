@@ -39,16 +39,17 @@
     max-width: 50vw;
   }
 
-  .submit-button {
-    margin-top: 20px;
-  }
-
-  .register-button {
-    margin-top: 20px;
-    margin-left: 20px;
-  }
   #header-text {
     margin: 50px 0;
+  }
+
+  .Buttons {
+    display: flex;
+    flex-direction: columns;
+    max-width: 140px;
+    margin: 20px auto;
+    justify-content: center;
+    padding: 10px;
   }
 </style>
 
@@ -69,11 +70,15 @@
       valid-feedback="Tack!"
     />
     <b-form-input type="password" id="input-2" v-model="password" />
-    <b-button class="submit-button" variant="success" @click="register"
-      >Logga in</b-button
-    >
-    <b-button class="register-button" variant="success" to="/register"
-      >Registrera</b-button
-    >
+    <b-container>
+      <b-row>
+        <b-button class="Buttons" variant="success" @click="register"
+          >Logga in</b-button
+        >
+        <b-button class="Buttons" variant="success" to="/register"
+          >Registrera</b-button
+        >
+      </b-row>
+    </b-container>
   </div>
 </template>

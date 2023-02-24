@@ -42,6 +42,15 @@
     color: #3a751c;
   }
 
+  .Buttons {
+    display: flex;
+    flex-direction: columns;
+    max-width: 140px;
+    margin: 20px auto;
+    justify-content: center;
+    padding: 10px;
+  }
+
   @media (max-width: 408px) {
     .btn-container {
       gap: 20px;
@@ -55,23 +64,25 @@
 
     <div class="log-in-container">
       <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
-      <b-button-toolbar justify class="btn-container">
+    </div>
+    <b-container>
+      <b-row>
         <b-button
           to="/register"
-          class="mx-1 btn"
+          class="Buttons"
           variant="success"
           v-if="isLoggedIn === false"
           >Kom igång</b-button
         >
         <b-button
           to="/login"
-          class="mx-1 btn"
+          class="Buttons"
           variant="success"
           v-if="isLoggedIn === false"
           >Logga in</b-button
         >
-      </b-button-toolbar>
-    </div>
+      </b-row>
+    </b-container>
     <CurrentInfo />
   </main>
 </template>
