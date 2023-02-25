@@ -113,24 +113,24 @@
 
 <style>
   .contact-page-wrapper {
-    margin: 20px 0;
-    min-width: 300px;
+    margin: 0 auto;
     width: 80%;
   }
 
   .horizontal-container {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -10px;
-    margin-right: -10px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
   }
 
   .vertical-container {
-    position: relative;
     width: 100%;
-    min-height: 1px;
-    padding-right: 70px;
-    padding-left: 70px;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .opening-times {
@@ -229,14 +229,14 @@
       grid-template-columns: auto auto;
       gap: 20px;
     }
+
+    .submit-btn {
+      width: 50%;
+    }
   }
 
   @media (min-width: 767px) {
     .opening-times {
-      height: 100%;
-    }
-
-    .vertical-container {
       margin-bottom: 30px;
     }
   }
@@ -247,13 +247,9 @@
       flex-wrap: wrap;
     }
 
-    .opening-times {
-      margin-right: 15px;
-    }
-
     .error-messages {
-      margin-left: 15px;
-      margin-right: 15px;
+      width: 40%;
+      margin: 40px auto;
     }
   }
 </style>
