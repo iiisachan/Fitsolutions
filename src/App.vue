@@ -51,12 +51,8 @@
     </b-navbar-brand>
 
     <b-navbar-toggle target="navbar-collapse">
-      <font-awesome-icon
-        v-if="collapsed"
-        icon="fa-solid fa-xmark"
-        @click="collapse"
-      />
-      <font-awesome-icon v-else icon="fa-solid fa-bars" @click="collapse" />
+      <font-awesome-icon v-if="collapsed" icon="fa-solid fa-xmark" />
+      <font-awesome-icon v-else icon="fa-solid fa-bars" />
     </b-navbar-toggle>
 
     <b-collapse is-nav id="navbar-collapse" class="m-1" v-model="collapsed">
