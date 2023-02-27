@@ -94,6 +94,23 @@
     width: 40vw;
     margin: 10px auto;
   }
+  @media (min-width: 375px) {
+    .form {
+      width: 90%;
+      max-width: 500px;
+    }
+  }
+  @media (min-width: 768px) {
+    .form {
+      width: 80%;
+      max-width: 700px;
+    }
+  }
+  @media (min-width: 980px) {
+    .form {
+      width: 60%;
+    }
+  }
 </style>
 
 <template>
