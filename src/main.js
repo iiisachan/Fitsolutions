@@ -3,12 +3,18 @@ import { createApp } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import {
+  faBars,
+  faChevronDown,
+  faXmark,
+  faChevronUp
+} from '@fortawesome/free-solid-svg-icons'
+import {
+  faGoogle,
+  faTwitter,
+  faFacebook,
+  faInstagram
+} from '@fortawesome/free-brands-svg-icons'
 
 import { initializeApp } from 'firebase/app'
 
@@ -22,7 +28,16 @@ const firebaseConfig = {
   measurementId: 'G-KBNBRP0BG2'
 }
 
-library.add(faBars, faXmark, faTwitter, faFacebook, faInstagram, faGoogle)
+library.add(
+  faBars,
+  faXmark,
+  faTwitter,
+  faFacebook,
+  faInstagram,
+  faGoogle,
+  faChevronUp,
+  faChevronDown
+)
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'

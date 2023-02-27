@@ -1,9 +1,5 @@
 <!-- <a href="https://www.flaticon.com/free-icons/muscle" title="muscle icons">Muscle icons created by Anggre Tionanda - Flaticon</a> -->
 <!-- <a href="https://www.flaticon.com/free-icons/random" title="random icons">Random icons created by KP Arts - Flaticon</a> -->
-<!-- <a
-href="https://www.vecteezy.com/members/exerciseanimatic"
->Workout animation video Stock Videos by Vecteezy</a
-> -->
 
 <script>
   export default {}
@@ -22,6 +18,7 @@ href="https://www.vecteezy.com/members/exerciseanimatic"
       img-top
       tag="RouterLink"
       to=""
+      class="muscle-card"
     />
     <b-card
       title="Rygg"
@@ -29,7 +26,8 @@ href="https://www.vecteezy.com/members/exerciseanimatic"
       img-alt="back logo"
       img-top
       tag="RouterLink"
-      to=""
+      to="/workout/rygg"
+      class="muscle-card"
     />
     <b-card
       title="Arm"
@@ -37,7 +35,8 @@ href="https://www.vecteezy.com/members/exerciseanimatic"
       img-alt="biceps logo"
       img-top
       tag="RouterLink"
-      to=""
+      to="/workout/arm"
+      class="muscle-card"
     />
     <b-card
       title="Ben"
@@ -45,7 +44,8 @@ href="https://www.vecteezy.com/members/exerciseanimatic"
       img-alt="ben logo"
       img-top
       tag="RouterLink"
-      to=""
+      to="/workout/ben"
+      class="muscle-card"
     />
     <b-card
       title="Mage"
@@ -53,13 +53,14 @@ href="https://www.vecteezy.com/members/exerciseanimatic"
       img-alt="upper-body logo"
       img-top
       tag="RouterLink"
-      to=""
+      to="/workout/mage"
+      class="muscle-card"
     />
   </div>
 </template>
 
 <style>
-  .card {
+  .muscle-card {
     text-decoration: none;
     color: black;
     max-width: 250px;

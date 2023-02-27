@@ -1,23 +1,6 @@
 <script>
   export default {
-    data() {
-      return {
-        result: null
-      }
-    },
-    methods: {
-      test() {
-        fetch('https://api.api-ninjas.com/v1/exercises?muscle=biceps', {
-          method: 'GET',
-          headers: { 'X-Api-Key': 'zV8SLuknU5721ue1tXxL3w==5IePC0SihT4A3RsR' }
-        })
-          .then((response) => response.json())
-          .then((result) => {
-            this.result = result
-            console.log(result)
-          })
-      }
-    },
+    methods: {},
     computed: {
       workout() {
         let link
@@ -30,9 +13,6 @@
           link = this.$store.state.workout.mage
         }
         return link
-      },
-      param() {
-        return this.$route.params.muscletype
       }
     }
   }
@@ -40,40 +20,75 @@
 
 <template>
   <h1 class="title">Workout</h1>
-  <button @click="test">test</button>
 
-  <div class="m-cntr" v-for="value in workout" :key="value.name">
-    <img :src="value.img" />
-    <div>
-      <h3>{{ value.name }}</h3>
-      <p>20rep</p>
-    </div>
-  </div>
-
-  <div class="m-cntr">
-    <img src="../../assets/workout.png" alt="icon" />
-    <div>
-      <h3>Push up</h3>
-      <p>20rep</p>
-    </div>
+  <div class="accordion workout-container" role="tablist">
+    <b-card
+      no-body
+      v-for="item in workout"
+      :key="item.name"
+      class="workout-card"
+    >
+      <b-card-header header-tag="header" role="tab">
+        <b-button
+          block
+          v-b-toggle="item.name"
+          class="muscle-button"
+          variant="light"
+        >
+          {{ item.name }}
+          <font-awesome-icon
+            icon="fa-solid fa-chevron-down"
+            v-b-toggle.chin-up
+          />
+        </b-button>
+      </b-card-header>
+      <b-collapse :id="item.name" accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <a :href="item.ref" target="_blank">
+            <video :src="item.img" autoplay muted loop />
+          </a>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
   </div>
 </template>
 
 <style>
-  img {
+  .accordion video {
     max-width: 100%;
   }
 
-  .m-cntr {
-    margin: 1rem;
-    display: flex;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 10px;
+  .workout-container {
+    margin: auto 2rem;
+    display: grid;
+    row-gap: 1rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
-  .m-cntr img {
-    width: 100px;
-    margin: auto 1rem;
+  .workout-card {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .muscle-button {
+    width: 100%;
+  }
+
+  .muscle-button .btn-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (min-width: 950px) {
+    .workout-container {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1rem;
+    }
+
+    .workout-card {
+      max-width: 600px;
+    }
   }
 </style>

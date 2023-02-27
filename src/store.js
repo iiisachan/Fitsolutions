@@ -21,16 +21,14 @@ const mutations = {
       ],
       arm: [
         {
-          name: 'Bench dip',
-          img: '../../assets/dip.gif'
+          name: 'Pull-up',
+          img: '../../assets/chin-up.mp4',
+          ref: 'https://musclewiki.com/bodyweight/male/biceps/chin-ups'
         },
         {
-          name: 'Push up',
-          img: '../../assets/push-up.gif'
-        },
-        {
-          name: 'Plyo side lunge',
-          img: '../../assets/plyo-side-lunge.gif'
+          name: 'test',
+          img: '../../assets/chin-up.mp4',
+          ref: 'https://musclewiki.com/bodyweight/male/biceps/chin-ups'
         }
       ],
       mage: [
