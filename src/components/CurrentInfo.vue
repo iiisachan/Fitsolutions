@@ -72,12 +72,33 @@
   }
 
   .card-group {
+    color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
 
+  .card-deck {
+    gap: 0;
+  }
+
   @media (max-width: 800px) {
+    .card-deck {
+      gap: 20px;
+    }
+
+    .card-img-top {
+      border-left: 1px solid black;
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+    }
+
+    .card-body {
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+
     .card-group {
       align-items: center;
       flex-direction: column;

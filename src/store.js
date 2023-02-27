@@ -11,7 +11,6 @@ const mutations = {
     }
   },
   state = {
-    counter: 0,
     workout: {
       ben: [
         {
