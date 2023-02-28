@@ -7,7 +7,8 @@ import {
   faBars,
   faChevronDown,
   faXmark,
-  faChevronUp
+  faChevronUp,
+  faArrowRight
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGoogle,
@@ -36,7 +37,8 @@ library.add(
   faInstagram,
   faGoogle,
   faChevronUp,
-  faChevronDown
+  faChevronDown,
+  faArrowRight
 )
 
 import 'bootstrap/dist/css/bootstrap.css'
