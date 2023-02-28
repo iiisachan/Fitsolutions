@@ -22,7 +22,7 @@
               <b-form-group label="Förnamn">
                 <b-form-input class="form-input" v-model="firstName" />
               </b-form-group>
-              <b-form-group label="Efteramn">
+              <b-form-group label="Efternamn">
                 <b-form-input class="form-input" v-model="lastName" />
               </b-form-group>
             </div>
