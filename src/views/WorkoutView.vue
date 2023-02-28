@@ -1,5 +1,10 @@
 <script>
+  import WorkoutItems from '../components/WorkoutItem.vue'
+
   export default {
+    components: {
+      WorkoutItems
+    },
     methods: {},
     computed: {
       workout() {
@@ -22,34 +27,9 @@
   <h1 class="title">Workout</h1>
 
   <div class="accordion workout-container" role="tablist">
-    <b-card
-      no-body
-      v-for="item in workout"
-      :key="item.name"
-      class="workout-card"
-    >
-      <b-card-header header-tag="header" role="tab">
-        <b-button
-          block
-          v-b-toggle="item.name"
-          class="muscle-button"
-          variant="light"
-        >
-          {{ item.name }}
-          <font-awesome-icon
-            icon="fa-solid fa-chevron-down"
-            v-b-toggle.chin-up
-          />
-        </b-button>
-      </b-card-header>
-      <b-collapse :id="item.name" accordion="my-accordion" role="tabpanel">
-        <b-card-body>
-          <a :href="item.ref" target="_blank">
-            <video :src="item.img" autoplay muted loop />
-          </a>
-        </b-card-body>
-      </b-collapse>
-    </b-card>
+    <template v-for="items in this.workout" :key="items.name">
+      <WorkoutItems :items="items" />
+    </template>
   </div>
 </template>
 
@@ -59,7 +39,7 @@
   }
 
   .workout-container {
-    margin: auto 2rem;
+    margin: 2rem;
     display: grid;
     row-gap: 1rem;
     grid-template-columns: 1fr;
