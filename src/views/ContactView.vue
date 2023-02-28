@@ -214,8 +214,8 @@
 
   @media (min-width: 375px) {
     .contact-page-wrapper {
-      margin: 20px 10px;
-      width: 100%;
+      margin-top: 20px;
+      width: 90%;
     }
 
     .opening-details {

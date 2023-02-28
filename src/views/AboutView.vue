@@ -17,6 +17,42 @@
           <img src="assets/about-us-first.jpg" alt="" />
         </div>
       </div>
+      <div class="body-content">
+        <img src="assets/person-jumping.jpg" alt="Person uses jumping rope" />
+        <div class="paragraphs">
+          <p>
+            Med FitSolutions behöver du inte oroa dig för att hitta ett gym som
+            passar dig eller träningsprogram igen! Vi erbjuder dig möjligheten
+            att hitta gym i din närhet och det medföljer även recensioner,
+            vägbeskrivning och ett betyg på ditt valda gym.
+          </p>
+          <p>
+            Eftersom att vi alla har olika mål med vår träning hjälper vi dig
+            att hitta den perfekta övningen för den specifika muskelgruppen och
+            därmed hjälper dig att uppnå de mål som du själv har satt upp.
+          </p>
+          <p>
+            Applikationen innehåller även en rad olika träningsprogram som
+            matchar alla nivåer från nybörjare till elitidrottare.
+          </p>
+          <p>
+            Du kan även enkelt skapa en profil som låter dig logga dina framsteg
+            utan ansträngning. Detta möjliggör att du kan hålla koll på din
+            träning och få en översikt av dina framsteg.
+          </p>
+          <p>
+            Vi erbjuder även en rad olika klipp för den valda övningen för en
+            specifik muskelgrupp, vilket gör att du kan lära dig nya övningar
+            och eventuellt förbättra din nuvarande teknik.
+          </p>
+          <p>
+            Sist men inte minst, erbjuder vi dig att spåra din vikt och
+            framgånger under din resas gång och sedan dela med dig utav detta
+            med dina vänner vilket gör att du håller dig motiverad!
+          </p>
+          <p>Ta första steget idag!</p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -55,22 +91,47 @@
     font-weight: normal;
   }
 
-  .header-image {
+  .header-image,
+  .body-content img {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin: 60px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
     width: 100%;
     min-height: 300px;
+    max-height: 700px;
   }
+
+  .body-content img {
+    border: 3px solid black;
+  }
+
   .header-image img {
     max-width: 100%;
     max-height: 100%;
     height: auto;
     border-radius: 20px;
+    border: 3px solid black;
   }
 
-  @media screen and (max-width: 1009px) {
+  .body-content {
+    line-height: 1.8;
+    font-size: 24px;
+  }
+
+  .paragraphs {
+    background-color: lightgray;
+    width: 100%;
+    margin: 0;
+    padding: 60px 20%;
+  }
+
+  .paragraphs p {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (max-width: 1099px) {
     .about-container h1 {
       text-align: left;
     }
