@@ -21,8 +21,8 @@
 <script>
   export default {
     setup() {
+      // eslint-disable-next-line no-unused-vars
       const store = useStore()
-      return store.state.currentWeight
     },
     data() {
       return {
@@ -69,7 +69,7 @@
 
   h1 {
     text-align: center;
-    margin: 50px 0;
+    margin: 30px 0;
   }
   .Buttons {
     display: flex;

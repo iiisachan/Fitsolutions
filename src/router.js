@@ -9,7 +9,7 @@ import ProfileView from './views/ProfileView.vue'
 import MuscleView from './views/MuscleView.vue'
 import WorkoutView from './views/WorkoutView.vue'
 
-export default createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
@@ -43,3 +43,15 @@ export default createRouter({
     { component: WorkoutView, path: '/workout/:muscletype' }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  window.scrollTo({
+    top: 0,
+    left: 0
+    // behavior: 'smooth'
+  })
+
+  next()
+})
+
+export default router

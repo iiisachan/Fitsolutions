@@ -22,7 +22,7 @@
               <b-form-group label="Förnamn">
                 <b-form-input class="form-input" v-model="firstName" />
               </b-form-group>
-              <b-form-group label="Efteramn">
+              <b-form-group label="Efternamn">
                 <b-form-input class="form-input" v-model="lastName" />
               </b-form-group>
             </div>
@@ -214,8 +214,8 @@
 
   @media (min-width: 375px) {
     .contact-page-wrapper {
-      margin: 20px 10px;
-      width: 100%;
+      margin-top: 20px;
+      width: 90%;
     }
 
     .opening-details {
