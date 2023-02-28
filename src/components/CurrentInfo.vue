@@ -72,7 +72,7 @@
   }
 
   .card-group {
-    color: white;
+    color: black;
     display: flex;
     flex-direction: row;
     justify-content: center;

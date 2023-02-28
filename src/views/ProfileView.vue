@@ -1,7 +1,24 @@
 <script>
   import axios from 'axios'
+  // import { onMounted, ref } from 'vue'
+  // import { getAuth, onAuthStateChanged } from '@firebase/auth'
 
   export default {
+    // setup() {
+    //   const isLoggedIn = ref(false)
+    //   let auth
+    //   onMounted(() => {
+    //     auth = getAuth()
+    //     onAuthStateChanged(auth, (user) => {
+    //       if (user) {
+    //         isLoggedIn.value = true
+    //       } else {
+    //         isLoggedIn.value = false
+    //       }
+    //     })
+    //   })
+    // },
+
     components: {},
 
     data() {
@@ -76,13 +93,13 @@
   <b-container fluid class="weight-container">
     <b-row>
       <b-col class="text-end">
-        Nuvarande Vikt: {{ this.$store.state.currentWeight }}
+        Nuvarande Vikt: {{ this.$store.state.users.currentWeight }}
       </b-col>
       <b-col class="text-center"
         ><font-awesome-icon icon="fa-solid fa-arrow-right"
       /></b-col>
       <b-col class="text-start"
-        >Mål vikt: {{ this.$store.state.goalWeight }}</b-col
+        >Mål vikt: {{ this.$store.state.users.goalWeight }}</b-col
       >
     </b-row>
   </b-container>

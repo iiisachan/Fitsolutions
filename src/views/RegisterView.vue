@@ -2,14 +2,30 @@
   import { ref } from 'vue'
   import { useStore } from 'vuex'
   import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+  import { v4 as uuidv4 } from 'uuid'
+  import router from '../router'
+
   const email = ref('')
   const password = ref('')
+  const cWeight = ref('')
+  const gWeight = ref('')
+  const store = useStore()
+
   const register = (cWeight, gWeight) => {
     console.log(cWeight, gWeight + ' Du har loggat din vikt!')
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-      // eslint-disable-next-line no-unused-vars
-      .then((data) => {
+      .then(() => {
         console.log('Sucessfully Registered!')
+        const id = uuidv4()
+        store.commit('addUser', {
+          id,
+          email: email.value,
+          currentWeight: cWeight,
+          goalWeight: gWeight
+        })
+        router.push('/profile')
+        // const data = { email: email.value, cWeight: cWeight, gWeight: gWeight }
+        // store.commit('addProfileData', data)
       })
       .catch((error) => {
         console.log(error.code)
@@ -20,10 +36,6 @@
 
 <script>
   export default {
-    setup() {
-      // eslint-disable-next-line no-unused-vars
-      const store = useStore()
-    },
     data() {
       return {
         newWeight: 0

@@ -1,5 +1,28 @@
 import { createStore } from 'vuex'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { v4 as uuidv4 } from 'uuid'
 
+const actions = {
+  registerUser({ commit }, { email, password, cWeight, gWeight }) {
+    // Register the user with Firebase
+    createUserWithEmailAndPassword(getAuth(), email, password)
+      .then((userCredential) => {
+        const user = userCredential.user
+        const newUser = {
+          uuid: uuidv4(),
+          email: user.email,
+          cWeight: cWeight,
+          gWeight: gWeight
+        }
+        commit('addUser', newUser)
+        commit('updateUser', newUser)
+      })
+      .catch((error) => {
+        console.log(error.code)
+        alert(error.message)
+      })
+  }
+}
 const mutations = {
     addNewWeight(state, weight) {
       state.currentWeight = weight
@@ -8,6 +31,17 @@ const mutations = {
     addNewWeight2(state, weight) {
       state.goalWeight = weight
       console.log(state.goalWeight)
+    },
+    addUser(state, payload) {
+      state.users.push(payload)
+    },
+    updateUser(state, payload) {
+      const userIndex = state.users.findIndex(
+        (user) => user.email === payload.email
+      )
+      if (userIndex !== -1) {
+        state.users[userIndex] = payload
+      }
     }
   },
   state = {
@@ -146,9 +180,7 @@ const mutations = {
         }
       ]
     },
-    goalWeight: 0,
-    currentWeight: 0,
-    newWeight: 0
+    users: []
   }
 
-export default createStore({ mutations, state, strict: true })
+export default createStore({ actions, mutations, state, strict: true })

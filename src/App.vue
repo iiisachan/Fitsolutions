@@ -64,9 +64,9 @@
           >Logga in</b-nav-item
         >
         <b-nav-item v-if="isLoggedIn" @click="handleSignOut"
-          >Sign Out</b-nav-item
+          >Logga ut</b-nav-item
         >
-        <b-nav-item v-if="isLoggedIn" to="/profile">Profile</b-nav-item>
+        <b-nav-item v-if="isLoggedIn" to="/profile">Profil</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -76,7 +76,7 @@
   </main>
 
   <!-- <div class="container my-5"> -->
-  <footer>
+  <footer class="footer-container">
     <section class="icons">
       <a
         class="btn text-white btn-floating m-1"
@@ -227,7 +227,7 @@
     font-weight: 600;
   }
 
-  footer {
+  .footer-container {
     font-family: 'Roboto', sans-serif;
     border-bottom: 2px solid;
     margin: auto;
