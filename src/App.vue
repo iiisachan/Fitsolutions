@@ -28,7 +28,9 @@
   export default {
     data() {
       return {
-        collapsed: false
+        collapsed: false,
+        modalShow: false,
+        modalinput: null
       }
     },
     created() {
@@ -38,6 +40,12 @@
           this.collapsed = false
         }
       )
+    },
+    methods: {
+      modal() {
+        this.modalShow = !this.modalShow
+        this.modalinput = null
+      }
     }
   }
 </script>
@@ -134,6 +142,7 @@
             <!-- Email input -->
             <div class="form-outline form-white mb-4">
               <input
+                v-model="modalinput"
                 type="email"
                 placeholder="Email adress"
                 class="form-control"
@@ -142,9 +151,21 @@
           </div>
 
           <div class="col-auto">
-            <button type="submit" class="btn btn-outline-light mb-4">
+            <!-- <button type="submit" class="btn btn-outline-light mb-4">
               Prenumerera!
-            </button>
+            </button> -->
+            <div>
+              <b-button
+                type="submit"
+                class="btn btn-outline-light mb-4"
+                @click="modal"
+                >Prenumerera</b-button
+              >
+
+              <b-modal v-model="modalShow" :hide-footer="true"
+                >Tack för din prenumeration!</b-modal
+              >
+            </div>
           </div>
         </div>
       </form>
@@ -189,13 +210,13 @@
         <section class="links">
           <div class="links-nav">
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Kundservice</h5>
+              <h5 class="text-uppercase">Inspiration</h5>
 
               <ul class="list-unstyled mb-0">
-                <li>Allmänna vilkor</li>
-                <li>Kundtjänst</li>
-                <li>Partners</li>
-                <li>FAQ</li>
+                <li>Hälsa</li>
+                <li>Böcker</li>
+                <li>Övningar</li>
+                <li>Utrustning</li>
               </ul>
             </div>
           </div>
@@ -274,5 +295,12 @@
   main {
     position: relative;
     min-height: 100vh;
+  }
+
+  @media (max-width: 575px) {
+    .links-nav {
+      display: block;
+      margin-left: auto;
+    }
   }
 </style>
