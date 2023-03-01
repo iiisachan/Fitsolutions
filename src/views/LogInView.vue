@@ -35,7 +35,7 @@
 </script>
 
 <style>
-  .container {
+  .button-container {
     max-width: 50vw;
   }
 
@@ -70,7 +70,7 @@
       valid-feedback="Tack!"
     />
     <b-form-input type="password" id="input-2" v-model="password" />
-    <b-container>
+    <b-container class="button-container">
       <b-row>
         <b-button class="Buttons" variant="success" @click="register"
           >Logga in</b-button

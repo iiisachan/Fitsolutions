@@ -1,10 +1,13 @@
-<script>
+<script setup>
   import axios from 'axios'
   // import { onMounted, ref } from 'vue'
   // import { getAuth, onAuthStateChanged } from '@firebase/auth'
-
+  import { useStore } from 'vuex'
+  // eslint-disable-next-line no-unused-vars
+  const store = useStore()
+</script>
+<script>
   export default {
-    // setup() {
     //   const isLoggedIn = ref(false)
     //   let auth
     //   onMounted(() => {
@@ -48,14 +51,14 @@
     max-width: 150px;
     max-height: 150px;
   }
-  .profile-container {
+  /* .profile-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
     margin: 50px 0;
-  }
+  } */
   .profile-name {
     justify-content: start;
   }
@@ -86,20 +89,22 @@
       </b-col>
     </b-row>
   </b-container>
-  <div class="profile-container">
-    <img class="profile-picture" src="assets/profile-picture.jpg" alt="" />
-    <h1 class="profile-name">Namn</h1>
-  </div>
+  <b-container class="profile-container">
+    <b-col
+      ><img class="profile-picture" src="assets/profile-picture.jpg" alt=""
+    /></b-col>
+    <b-col class="profile-name h1">Namn</b-col>
+  </b-container>
   <b-container fluid class="weight-container">
     <b-row>
       <b-col class="text-end">
-        Nuvarande Vikt: {{ this.$store.state.users.currentWeight }}
+        Nuvarande Vikt: {{ this.$store.state.users[0].currentWeight }}
       </b-col>
       <b-col class="text-center"
         ><font-awesome-icon icon="fa-solid fa-arrow-right"
       /></b-col>
       <b-col class="text-start"
-        >Mål vikt: {{ this.$store.state.users.goalWeight }}</b-col
+        >Mål vikt: {{ this.$store.state.users[0].goalWeight }}</b-col
       >
     </b-row>
   </b-container>

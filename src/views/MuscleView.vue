@@ -2,11 +2,22 @@
 <!-- <a href="https://www.flaticon.com/free-icons/random" title="random icons">Random icons created by KP Arts - Flaticon</a> -->
 
 <script>
-  export default {}
+  export default {
+    methods: {
+      randomMuscle() {
+        const randomIndex = Math.floor(Math.random() * this.muscles.length)
+        this.$router.push(`/workout/${this.muscles[randomIndex]}`)
+      }
+    },
+    computed: {
+      muscles() {
+        return Object.keys(this.$store.state.workout)
+      }
+    }
+  }
 </script>
 
-<!-- TO DO: upddatera länkarna till övningarna -->
-<!-- TO DO: generera random länk  -->
+<!-- TO DO: fixa hover och grid gap på desktop -->
 
 <template>
   <h1 class="title">Muskelgrupper</h1>
@@ -16,9 +27,8 @@
       img-src="../../assets/shuffle.png"
       img-alt="back logo"
       img-top
-      tag="RouterLink"
-      to=""
       class="muscle-card"
+      @click="randomMuscle"
     />
     <b-card
       title="Rygg"
@@ -36,6 +46,15 @@
       img-top
       tag="RouterLink"
       to="/workout/arm"
+      class="muscle-card"
+    />
+    <b-card
+      title="Bröst"
+      img-src="../../assets/chest.png"
+      img-alt="chest logo"
+      img-top
+      tag="RouterLink"
+      to="/workout/chest"
       class="muscle-card"
     />
     <b-card
@@ -60,12 +79,6 @@
 </template>
 
 <style>
-  .muscle-card {
-    text-decoration: none;
-    color: black;
-    max-width: 250px;
-  }
-
   .card-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -73,6 +86,19 @@
     justify-content: center;
     justify-items: center;
     margin: 3rem 20px;
+  }
+
+  .muscle-card {
+    text-decoration: none;
+    color: black;
+    max-width: 250px;
+    border: 1px solid #d5d5d5;
+  }
+
+  .muscle-card:hover {
+    cursor: pointer;
+    color: #3a751c;
+    text-decoration: underline;
   }
 
   .card-img-top {
@@ -87,7 +113,7 @@
 
   @media (min-width: 950px) {
     .card-container {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 </style>
