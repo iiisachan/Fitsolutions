@@ -4,6 +4,7 @@
   import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
   import { v4 as uuidv4 } from 'uuid'
   import router from '../router'
+  // import firebase from 'firebase'
 
   const email = ref('')
   const password = ref('')
