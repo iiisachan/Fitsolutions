@@ -230,7 +230,7 @@
   .footer-container {
     font-family: 'Roboto', sans-serif;
     border-bottom: 2px solid;
-    margin: auto;
+    margin: 30px auto 0;
     max-width: 100%;
     padding: 10px;
     background-color: #2f5233;

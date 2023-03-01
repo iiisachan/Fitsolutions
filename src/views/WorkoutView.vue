@@ -49,10 +49,23 @@
   .workout-card {
     max-width: 500px;
     width: 100%;
+    border: none;
+  }
+
+  .workout-card .card-header {
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .workout-card .collapse {
+    border: none;
   }
 
   .muscle-button {
     width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 0;
   }
 
   .muscle-button .btn-content {

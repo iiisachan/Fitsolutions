@@ -87,16 +87,16 @@
       gap: 20px;
     }
 
-    .card-img-top {
-      border-left: 1px solid black;
-      border-top: 1px solid black;
-      border-right: 1px solid black;
+    .card-group .card-img-top {
+      border-left: 1px solid rgba(0, 0, 0, 0.175);
+      border-top: 1px solid rgba(0, 0, 0, 0.175);
+      border-right: 1px solid rgba(0, 0, 0, 0.175);
     }
 
-    .card-body {
-      border-left: 1px solid black;
-      border-right: 1px solid black;
-      border-bottom: 1px solid black;
+    .card-group .card-body {
+      border-left: 1px solid rgba(0, 0, 0, 0.175);
+      border-right: 1px solid rgba(0, 0, 0, 0.175);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.175);
     }
 
     .card-group {

@@ -54,6 +54,14 @@ const mutations = {
           ref: ''
         }
       ],
+      rygg: [
+        {
+          name: '',
+          id: '',
+          img: '../../assets/.mp4',
+          ref: ''
+        }
+      ],
       arm: [
         {
           name: 'Pull-up',
