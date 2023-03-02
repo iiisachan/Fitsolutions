@@ -64,8 +64,8 @@
   }
 
   .about-container h1 {
-    text-align: center;
-    margin-left: 70px;
+    text-align: left;
+    margin-left: 10%;
   }
 
   .about-wrapper {
@@ -104,7 +104,10 @@
   }
 
   .body-content img {
-    border: 3px solid black;
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 20px;
   }
 
   .header-image img {

@@ -136,6 +136,7 @@
   .opening-times {
     padding: 20px 0;
     margin-bottom: 30px;
+    margin-top: 50px;
     min-height: 300px;
     border: 1px solid #000;
     position: relative;
