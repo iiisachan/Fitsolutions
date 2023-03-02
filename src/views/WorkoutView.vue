@@ -16,6 +16,10 @@
           link = this.$store.state.workout.arm
         } else if (this.$route.params.muscletype === 'mage') {
           link = this.$store.state.workout.mage
+        } else if (this.$route.params.muscletype === 'rygg') {
+          link = this.$store.state.workout.rygg
+        } else if (this.$route.params.muscletype === 'chest') {
+          link = this.$store.state.workout.chest
         }
         return link
       }
@@ -40,8 +44,8 @@
 
   .workout-container {
     margin: 2rem;
-    display: grid;
     row-gap: 1rem;
+    display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
   }
@@ -76,7 +80,7 @@
 
   @media (min-width: 950px) {
     .workout-container {
-      grid-template-columns: repeat(2, 1fr);
+      /* grid-template-columns: repeat(2, 1fr); */
       column-gap: 1rem;
     }
 

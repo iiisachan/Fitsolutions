@@ -48,18 +48,164 @@ const mutations = {
     workout: {
       ben: [
         {
-          name: '',
-          id: '',
-          img: '../../assets/.mp4',
-          ref: ''
+          name: 'Forward Lunges',
+          id: 'lunge',
+          img: '../../assets/lunge.mp4',
+          ref: 'https://musclewiki.com/bodyweight/female/quads/forward-lunges'
+        },
+        {
+          name: 'Barbell Squat',
+          id: 'barbell-squat',
+          img: '../../assets/barbell-squat.mp4',
+          ref: 'https://musclewiki.com/barbell/male/quads/barbell-squat'
+        },
+        {
+          name: 'Barbell Curtsy Lunge',
+          id: 'barbell-curtsy-lunge',
+          img: '../../assets/barbell-curtsy-lunge.mp4',
+          ref: 'https://musclewiki.com/barbell/male/quads/barbell-curtsy-lunge'
+        },
+        {
+          name: 'Kettlebell Lateral Lunge',
+          id: 'kettlebell-lateral-lunge',
+          img: '../../assets/kettlebell-lateral-lunge.mp4',
+          ref: 'https://musclewiki.com/kettlebells/female/quads/kettlebell-lateral-lunge'
+        },
+        {
+          name: 'Kettlebell Reverse Lunge',
+          id: 'kettlebell-reverse-lunge',
+          img: '../../assets/kettlebell-reverse-lunge.mp4',
+          ref: 'https://musclewiki.com/kettlebells/female/quads/kettlebell-reverse-lunge'
+        },
+        {
+          name: 'Cable Standing Leg Extension',
+          id: 'cable-leg-extension',
+          img: '../../assets/cable-leg-extension.mp4',
+          ref: 'https://musclewiki.com/cables/female/quads/cable-standing-leg-extension'
+        },
+        {
+          name: 'Bulgarian Split Squat',
+          id: 'bulgarian-split-squat',
+          img: '../../assets/bulgarian-split-squat.mp4',
+          ref: 'https://musclewiki.com/bodyweight/female/quads/bulgarian-split-squat'
+        },
+        {
+          name: 'Jump Squats',
+          id: 'jump-squat',
+          img: '../../assets/jump-squat.mp4',
+          ref: 'https://musclewiki.com/bodyweight/male/quads/jump-squats'
+        },
+        {
+          name: 'Barbell Hip Thrust',
+          id: 'hip-thrust',
+          img: '../../assets/hip-thrust.mp4',
+          ref: 'https://musclewiki.com/barbell/female/glutes/barbell-hip-thrust'
+        },
+        {
+          name: 'Band Squat',
+          id: 'band-squat',
+          img: '../../assets/band-squat.mp4',
+          ref: 'https://musclewiki.com/band/female/glutes/band-squat'
+        }
+      ],
+      chest: [
+        {
+          name: 'Barbell Bench Press',
+          id: 'bench-press',
+          img: '../../assets/bench-press.mp4',
+          ref: 'https://musclewiki.com/barbell/male/chest/barbell-bench-press'
+        },
+        {
+          name: 'Dumbbell Incline Bench Press',
+          id: 'dumbbell-bench-press',
+          img: '../../assets/dumbbell-bench-press.mp4',
+          ref: 'https://musclewiki.com/dumbbells/male/chest/dumbbell-incline-bench-press'
+        },
+        {
+          name: 'Dumbbell Incline Chest Flys',
+          id: 'dumbbell-incline-chest',
+          img: '../../assets/dumbbell-incline-chest.mp4',
+          ref: 'https://musclewiki.com/dumbbells/male/chest/dumbbell-incline-chest-flys'
+        },
+        {
+          name: 'Cable Chest Press',
+          id: 'cable-chestpress',
+          img: '../../assets/cable-chestpress.mp4',
+          ref: 'https://musclewiki.com/cables/male/chest/cable-chest-press'
+        },
+        {
+          name: 'Kettlebell Chest Press',
+          id: 'kettlebell-chest-press',
+          img: '../../assets/kettlebell-chest-press.mp4',
+          ref: 'https://musclewiki.com/kettlebells/male/chest/kettlebell-chest-press'
+        },
+        {
+          name: 'Push Up',
+          id: 'pushup',
+          img: '../../assets/pushup.mp4',
+          ref: 'https://musclewiki.com/bodyweight/male/chest/push-up'
         }
       ],
       rygg: [
         {
-          name: '',
-          id: '',
-          img: '../../assets/.mp4',
-          ref: ''
+          name: 'Machine 45 Degree Back Extension',
+          id: 'back-extension',
+          img: '../../assets/back-extension.mp4',
+          ref: 'https://musclewiki.com/machine/female/lowerback/machine-45-degree-back-extension'
+        },
+        {
+          name: 'Superman',
+          id: 'superman',
+          img: '../../assets/superman.mp4',
+          ref: 'https://musclewiki.com/bodyweight/female/lowerback/supermans'
+        },
+        {
+          name: 'Barbell Deadlift',
+          id: 'barbell-deadlift',
+          img: '../../assets/barbell-deadlift.mp4',
+          ref: 'https://musclewiki.com/barbell/male/lowerback/barbell-deadlift'
+        },
+        {
+          name: 'Kettlebell Swing',
+          id: 'kettlebell-swing',
+          img: '../../assets/kettlebell-swing.mp4',
+          ref: 'https://musclewiki.com/kettlebells/female/lowerback/kettlebell-swing'
+        },
+        {
+          name: 'Machine Pulldown',
+          id: 'machine-pulldown',
+          img: '../../assets/machine-pulldown.mp4',
+          ref: 'https://musclewiki.com/machine/male/lats/machine-pulldown'
+        },
+        {
+          name: 'Pull Ups',
+          id: 'pullup',
+          img: '../../assets/pullup.mp4',
+          ref: 'https://musclewiki.com/bodyweight/female/lats/pull-ups'
+        },
+        {
+          name: 'Dumbbell Row Unilateral',
+          id: 'row-unilateral',
+          img: '../../assets/dumbbell-row-unilateral.mp4',
+          ref: 'https://musclewiki.com/dumbbells/male/forearms/dumbbell-row-unilateral'
+        },
+        {
+          name: 'Machine Seated Cable Row',
+          id: 'cable-row',
+          img: '../../assets/cable-row.mp4',
+          ref: 'https://musclewiki.com/machine/female/lats/machine-seated-cable-row'
+        },
+        {
+          name: 'Kettlebell Row',
+          id: 'kettlebell-row',
+          img: '../../assets/kettlebell-row.mp4',
+          ref: 'https://musclewiki.com/kettlebells/male/lats/kettlebell-row'
+        },
+        {
+          name: 'Kettlebell Shoulder Extension',
+          id: 'kettlebell-shoulder-extension',
+          img: '../../assets/kettlebell-shoulder-extension.mp4',
+          ref: 'https://musclewiki.com/kettlebells/male/lats/kettlebell-shoulder-extension'
         }
       ],
       arm: [
