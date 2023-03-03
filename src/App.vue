@@ -71,10 +71,12 @@
         <b-nav-item v-if="isLoggedIn === false" to="/login"
           >Logga in</b-nav-item
         >
+
+        <b-nav-item v-if="isLoggedIn" to="/profile">Profil</b-nav-item>
+        <b-nav-item v-if="isLoggedIn" to="/muscle">Övningar</b-nav-item>
         <b-nav-item v-if="isLoggedIn" @click="handleSignOut"
           >Logga ut</b-nav-item
         >
-        <b-nav-item v-if="isLoggedIn" to="/profile">Profil</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -281,14 +283,13 @@
     gap: 10px;
     justify-content: space-around;
     margin-left: 25px;
-
-    /* margin: auto; */
   }
-  a {
+  .links a {
     color: white;
     text-decoration: none;
   }
-  a:hover {
+
+  .links a:hover {
     color: indianred;
   }
 

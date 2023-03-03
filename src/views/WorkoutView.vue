@@ -28,7 +28,12 @@
 </script>
 
 <template>
-  <h1 class="title">Workout</h1>
+  <h1 class="title">Övningar</h1>
+  <div class="page-nav">
+    <RouterLink class="page-nav-item" to="/muscle"> Muskelgrupper </RouterLink>
+    <p class="page-nav-item">></p>
+    <p class="page-nav-item">{{ this.$route.params.muscletype }}</p>
+  </div>
 
   <div class="accordion workout-container" role="tablist">
     <template v-for="items in this.workout" :key="items.name">
@@ -38,12 +43,35 @@
 </template>
 
 <style>
+  .page-nav {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+  }
+
+  .page-nav-item {
+    font-weight: 600;
+    margin: 0;
+    padding-right: 1rem;
+    color: gray;
+    text-decoration: none;
+  }
+
+  .page-nav a {
+    text-decoration: none;
+  }
+
+  .page-nav a:hover {
+    color: #3a751c;
+    text-decoration: underline;
+  }
+
   .accordion video {
     max-width: 100%;
   }
 
   .workout-container {
-    margin: 2rem;
+    margin: 3rem 2rem;
     row-gap: 1rem;
     display: grid;
     grid-template-columns: 1fr;
