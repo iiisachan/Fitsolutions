@@ -4,7 +4,6 @@
   // import { getAuth, onAuthStateChanged } from '@firebase/auth'
   import { useStore } from 'vuex'
   // eslint-disable-next-line no-unused-vars
-  const store = useStore()
 </script>
 <script>
   export default {
@@ -21,7 +20,14 @@
     //     })
     //   })
     // },
+    setup() {
+      const store = useStore()
 
+      return {
+        // eslint-disable-next-line no-undef
+        users: computed(() => store.state.users)
+      }
+    },
     components: {},
 
     data() {
@@ -95,9 +101,9 @@
     /></b-col>
     <b-col class="profile-name h1">Namn</b-col>
   </b-container>
-  <b-container fluid class="weight-container">
+  <b-container>
     <b-row>
-      <b-col class="text-end">
+      <b-col>
         Nuvarande Vikt: {{ this.$store.state.users[0].currentWeight }}
       </b-col>
       <b-col class="text-center"

@@ -51,11 +51,14 @@
     justify-content: center;
     padding: 10px;
   }
+  .login-container {
+    max-width: 50vw;
+  }
 </style>
 
 <template>
   <h1 id="header-text">Logga in till ditt konto</h1>
-  <div md="6" class="container justify-content-center">
+  <div md="6" class="container justify-content-center login-container">
     <b-form-group
       id="fieldset-1"
       label="Email:"
