@@ -59,38 +59,28 @@
 </style>
 
 <template>
-  <main>
-    <img class="main-img" src="assets/workout-img.jpg" alt="" />
+  <img class="main-img" src="assets/workout-img.jpg" alt="" />
 
-    <div class="log-in-container">
-      <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
-    </div>
-    <b-container>
+  <div class="log-in-container">
+    <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
+  </div>
+  <b-container>
+    <b-row>
       <b-button
-        to="/muscle"
+        to="/register"
         class="Buttons"
-        v-if="isLoggedIn === true"
         variant="success"
-        >Se träningar</b-button
+        v-if="isLoggedIn === false"
+        >Kom igång</b-button
       >
-
-      <b-row>
-        <b-button
-          to="/register"
-          class="Buttons"
-          variant="success"
-          v-if="isLoggedIn === false"
-          >Kom igång</b-button
-        >
-        <b-button
-          to="/login"
-          class="Buttons"
-          variant="success"
-          v-if="isLoggedIn === false"
-          >Logga in</b-button
-        >
-      </b-row>
-    </b-container>
-    <CurrentInfo />
-  </main>
+      <b-button
+        to="/login"
+        class="Buttons"
+        variant="success"
+        v-if="isLoggedIn === false"
+        >Logga in</b-button
+      >
+    </b-row>
+  </b-container>
+  <CurrentInfo />
 </template>

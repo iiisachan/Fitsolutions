@@ -17,6 +17,8 @@ import {
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
 
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons'
+
 import { initializeApp } from 'firebase/app'
 
 const firebaseConfig = {
@@ -38,7 +40,8 @@ library.add(
   faGoogle,
   faChevronUp,
   faChevronDown,
-  faArrowRight
+  faArrowRight,
+  faCircleUser
 )
 
 import 'bootstrap/dist/css/bootstrap.css'
