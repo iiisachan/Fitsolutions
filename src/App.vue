@@ -28,7 +28,6 @@
   export default {
     data() {
       return {
-        collapsed: false,
         modalShow: false,
         modalinput: null
       }
@@ -37,7 +36,6 @@
       this.$watch(
         () => this.$route.params,
         () => {
-          this.collapsed = false
           const navMenu = document.querySelector('.nav-menu')
           const hamburger = document.querySelector('.hamburger')
           navMenu.classList.remove('active')
@@ -56,8 +54,6 @@
 
         navMenu.classList.toggle('active')
         hamburger.classList.toggle('active')
-
-        this.collapsed != this.collapsed
       }
     }
   }
@@ -178,12 +174,6 @@
       <form action="">
         <!--Grid row-->
         <div class="row d-flex justify-content-center">
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong />
-            </p>
-          </div>
-
           <div class="col-md-5 col-12">
             <!-- Email input -->
             <div class="form-outline form-white mb-4">
@@ -231,42 +221,34 @@
           <h5 class="text-uppercase">Navigation</h5>
 
           <ul class="list-unstyled mb-0">
-            <li>
-              <RouterLink to="/"> Hem </RouterLink>
-            </li>
+            <li><RouterLink to="/"> Hem </RouterLink></li>
             <li><RouterLink to="/about"> Om </RouterLink></li>
             <li><RouterLink to="/contact"> Kontakt </RouterLink></li>
             <li><RouterLink to="/login"> Login </RouterLink></li>
           </ul>
         </div>
-        <section class="links">
-          <div class="links-nav">
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Kundservice</h5>
 
-              <ul class="list-unstyled mb-0">
-                <li>Allmänna vilkor</li>
-                <li>Kundtjänst</li>
-                <li>Partners</li>
-                <li>FAQ</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section class="links">
-          <div class="links-nav">
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Inspiration</h5>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Kundservice</h5>
 
-              <ul class="list-unstyled mb-0">
-                <li>Hälsa</li>
-                <li>Böcker</li>
-                <li>Övningar</li>
-                <li>Utrustning</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+          <ul class="list-unstyled mb-0">
+            <li>Allmänna vilkor</li>
+            <li>Kundtjänst</li>
+            <li>Partners</li>
+            <li>FAQ</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Inspiration</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>Hälsa</li>
+            <li>Böcker</li>
+            <li>Övningar</li>
+            <li>Utrustning</li>
+          </ul>
+        </div>
       </div>
     </section>
   </footer>
@@ -380,13 +362,14 @@
   }
   .beskrivning {
     text-align: center;
+    margin: 1rem 1rem 3rem;
   }
   .links-nav {
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
     justify-content: space-around;
-    margin-left: 25px;
+    margin-bottom: 2rem;
   }
   .links a {
     color: white;
@@ -394,7 +377,7 @@
   }
 
   .links a:hover {
-    color: indianred;
+    color: black;
   }
 
   main {
@@ -406,7 +389,14 @@
   @media (max-width: 575px) {
     .links-nav {
       display: block;
-      margin: 2rem auto;
+      margin-left: 1rem;
+    }
+  }
+
+  @media (max-width: 775px) {
+    .form-control {
+      width: 300px;
+      margin: 0 auto;
     }
   }
 
