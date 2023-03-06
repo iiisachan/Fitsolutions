@@ -1,37 +1,43 @@
 <script setup>
   import { ref } from 'vue'
-  import { useStore } from 'vuex'
   import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-  import { v4 as uuidv4 } from 'uuid'
-  import router from '../router'
-  import { useCollection } from 'vuefire'
-  import { collection } from 'firebase/firestore'
-  import { useFirestore } from 'vuefire'
+  import db from './firebase/firebaseInit.js'
+  // import router from '../router'
   // import firebase from 'firebase'
+  // import { useStore } from 'vuex'
+  // import { v4 as uuidv4 } from 'uuid'
+  // import { collection, addDoc } from 'firebase/firestore'
 
   const email = ref('')
   const password = ref('')
+  const firstName = ref('')
+  const lastName = ref('')
+  const userName = ref('')
   const cWeight = ref('')
   const gWeight = ref('')
-  const store = useStore()
-  const db = useFirestore()
-  const users = useCollection(collection(db, ' Z4x4AnyXHe4Z6sl6j3ma'))
-  console.log(users)
-  const register = (cWeight, gWeight) => {
-    console.log(cWeight, gWeight + ' Du har loggat din vikt!')
+  // const store = useStore()
+
+  const register = () => {
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-      .then(() => {
-        console.log('Sucessfully Registered!')
-        const id = uuidv4()
-        store.commit('addUser', {
-          id,
-          email: email.value,
-          currentWeight: cWeight,
-          goalWeight: gWeight
-        })
-        router.push('/')
-        // const data = { email: email.value, cWeight: cWeight, gWeight: gWeight }
-        // store.commit('addProfileData', data)
+      .then((result) => {
+        const dataBase = db.collection('users').doc(result.user.uid)
+
+        dataBase
+          .set({
+            firstName: firstName.value,
+            lastName: lastName.value,
+            userName: userName.value,
+            email: email.value,
+            currentWeight: cWeight.value,
+            goalWeight: gWeight.value
+          })
+          .then(() => {
+            console.log('Successfully Registered!')
+          })
+          .catch((error) => {
+            console.log(error.code)
+            alert(error.message)
+          })
       })
       .catch((error) => {
         console.log(error.code)

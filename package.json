@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@firebase/app": "^0.9.4",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
