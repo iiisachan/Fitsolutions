@@ -50,6 +50,9 @@
     justify-content: center;
     padding: 10px;
   }
+  .main-video {
+    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.75);
+  }
 
   @media (max-width: 408px) {
     .btn-container {
@@ -59,38 +62,38 @@
 </style>
 
 <template>
-  <main>
-    <img class="main-img" src="assets/workout-img.jpg" alt="" />
+  <div>
+    <video class="w-100 main-video" autoplay loop src="assets/gym-video.mp4" />
+  </div>
 
-    <div class="log-in-container">
-      <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
-    </div>
-    <b-container>
+  <div class="log-in-container">
+    <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
+  </div>
+  <b-container>
+    <b-button
+      to="/muscle"
+      class="Buttons"
+      v-if="isLoggedIn === true"
+      variant="success"
+      >Se träningar</b-button
+    >
+
+    <b-row>
       <b-button
-        to="/muscle"
+        to="/register"
         class="Buttons"
-        v-if="isLoggedIn === true"
         variant="success"
-        >Se träningar</b-button
+        v-if="isLoggedIn === false"
+        >Kom igång</b-button
       >
-
-      <b-row>
-        <b-button
-          to="/register"
-          class="Buttons"
-          variant="success"
-          v-if="isLoggedIn === false"
-          >Kom igång</b-button
-        >
-        <b-button
-          to="/login"
-          class="Buttons"
-          variant="success"
-          v-if="isLoggedIn === false"
-          >Logga in</b-button
-        >
-      </b-row>
-    </b-container>
-    <CurrentInfo />
-  </main>
+      <b-button
+        to="/login"
+        class="Buttons"
+        variant="success"
+        v-if="isLoggedIn === false"
+        >Logga in</b-button
+      >
+    </b-row>
+  </b-container>
+  <CurrentInfo />
 </template>

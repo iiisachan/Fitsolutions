@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { initializeApp } from 'firebase/app'
 
 import {
   faBars,
@@ -16,8 +16,6 @@ import {
   faFacebook,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
-
-import { initializeApp } from 'firebase/app'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',

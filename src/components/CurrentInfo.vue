@@ -3,6 +3,7 @@
   <div>
     <b-card-group class="card-group" deck>
       <b-card
+        class="main-cards"
         title="Protein Shakes"
         img-src="assets/protein-img.jpg"
         img-alt="Protein shake that can be made in store."
@@ -16,6 +17,7 @@
         </b-card-text>
       </b-card>
       <b-card
+        class="main-cards"
         title="Ta del av gym i närheten."
         img-src="assets/pullup-img.jpg"
         img-alt="Man that does a pullup."
@@ -30,6 +32,7 @@
         </b-card-text>
       </b-card>
       <b-card
+        class="main-cards"
         title="Tips & inspiration"
         img-src="assets/protein-bar.jpg"
         img-alt="Bild på en protein bar för inspiration till träningen."
@@ -71,6 +74,10 @@
     margin: 1.5em;
   }
 
+  .main-cards {
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+  }
   .card-group {
     color: black;
     display: flex;
@@ -78,7 +85,7 @@
     justify-content: center;
   }
 
-  .card-deck {
+  .card .card-deck {
     gap: 0;
   }
 
