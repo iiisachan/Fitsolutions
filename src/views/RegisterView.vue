@@ -4,6 +4,9 @@
   import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
   import { v4 as uuidv4 } from 'uuid'
   import router from '../router'
+  import { useCollection } from 'vuefire'
+  import { collection } from 'firebase/firestore'
+  import { useFirestore } from 'vuefire'
   // import firebase from 'firebase'
 
   const email = ref('')
@@ -11,7 +14,9 @@
   const cWeight = ref('')
   const gWeight = ref('')
   const store = useStore()
-
+  const db = useFirestore()
+  const users = useCollection(collection(db, ' Z4x4AnyXHe4Z6sl6j3ma'))
+  console.log(users)
   const register = (cWeight, gWeight) => {
     console.log(cWeight, gWeight + ' Du har loggat din vikt!')
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
@@ -24,7 +29,7 @@
           currentWeight: cWeight,
           goalWeight: gWeight
         })
-        router.push('/profile')
+        router.push('/')
         // const data = { email: email.value, cWeight: cWeight, gWeight: gWeight }
         // store.commit('addProfileData', data)
       })

@@ -50,6 +50,9 @@
     justify-content: center;
     padding: 10px;
   }
+  .main-video {
+    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.75);
+  }
 
   @media (max-width: 408px) {
     .btn-container {
@@ -59,7 +62,9 @@
 </style>
 
 <template>
-  <img class="main-img" src="assets/workout-img.jpg" alt="" />
+  <div>
+    <video class="w-100 main-video" autoplay loop src="assets/gym-video.mp4" />
+  </div>
 
   <div class="log-in-container">
     <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
