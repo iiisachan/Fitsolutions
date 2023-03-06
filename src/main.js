@@ -19,8 +19,6 @@ import {
 
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons'
 
-import { initializeApp } from 'firebase/app'
-
 const firebaseConfig = {
   apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
   authDomain: 'fitsolutions-3ac43.firebaseapp.com',
