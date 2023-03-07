@@ -148,7 +148,7 @@ const mutations = {
       ],
       rygg: [
         {
-          name: 'Machine 45 Degree Back Extension',
+          name: 'Back Extension',
           id: 'back-extension',
           img: '../../assets/back-extension.mp4',
           ref: 'https://musclewiki.com/machine/female/lowerback/machine-45-degree-back-extension'

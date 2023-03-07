@@ -10,8 +10,7 @@
           placeholder="Logga dina aktiviteter..."
           rows="3"
           max-rows="6"
-        >
-        </b-form-textarea>
+        />
       </b-row>
     </b-container>
     <b-button variant="success">Spara</b-button>
@@ -26,8 +25,7 @@
           placeholder="Logga dina aktiviteter..."
           rows="3"
           max-rows="6"
-        >
-        </b-form-textarea>
+        />
       </b-row>
     </b-container>
     <b-button variant="success">Spara</b-button>
@@ -42,8 +40,7 @@
           placeholder="Logga dina aktiviteter..."
           rows="3"
           max-rows="10"
-        >
-        </b-form-textarea>
+        />
       </b-row>
     </b-container>
     <b-button variant="success">Spara</b-button>
@@ -58,8 +55,7 @@
           placeholder="Logga dina aktiviteter..."
           rows="3"
           max-rows="10"
-        >
-        </b-form-textarea>
+        />
       </b-row>
     </b-container>
     <b-button variant="success">Spara</b-button>
@@ -74,8 +70,7 @@
           placeholder="Logga dina aktiviteter..."
           rows="3"
           max-rows="10"
-        >
-        </b-form-textarea>
+        />
       </b-row>
     </b-container>
     <b-button variant="success">Spara</b-button>
@@ -90,8 +85,7 @@
           placeholder="Logga dina aktiviteter..."
           rows="3"
           max-rows="10"
-        >
-        </b-form-textarea>
+        />
       </b-row>
     </b-container>
     <b-button variant="success">Spara</b-button>
@@ -106,8 +100,7 @@
           placeholder="Logga dina aktiviteter..."
           rows="3"
           max-rows="10"
-        >
-        </b-form-textarea>
+        />
       </b-row>
     </b-container>
     <b-button variant="success">Spara</b-button>
@@ -122,7 +115,4 @@
       }
     }
   }
-  Vue.createApp({
-    data() {}
-  }).mount('#app')
 </script>
