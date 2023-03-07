@@ -10,6 +10,7 @@ import MuscleView from './views/MuscleView.vue'
 import WorkoutView from './views/WorkoutView.vue'
 import LogBookView from './views/LogBookView.vue'
 import LogView from './views/LogView.vue'
+import GymMapView from './views/GymMapView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -44,7 +45,11 @@ const router = createRouter({
     },
     { component: WorkoutView, path: '/workout/:muscletype' },
     { component: LogBookView, path: '/logbook' },
-    { component: LogView, path: '/log' }
+    { component: LogView, path: '/log' },
+    {
+      component: GymMapView,
+      path: '/map'
+    }
   ]
 })
 
