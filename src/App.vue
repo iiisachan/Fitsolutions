@@ -78,6 +78,9 @@
           <RouterLink to="/about"> Om </RouterLink>
         </li>
         <li>
+          <RouterLink to="/map"> Hitta Gym </RouterLink>
+        </li>
+        <li>
           <RouterLink to="/contact"> Kontakt </RouterLink>
         </li>
         <li>

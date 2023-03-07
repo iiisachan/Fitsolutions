@@ -8,6 +8,7 @@ import RegisterView from './views/RegisterView.vue'
 import ProfileView from './views/ProfileView.vue'
 import MuscleView from './views/MuscleView.vue'
 import WorkoutView from './views/WorkoutView.vue'
+import GymMapView from './views/GymMapView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -40,7 +41,11 @@ const router = createRouter({
       component: MuscleView,
       path: '/muscle'
     },
-    { component: WorkoutView, path: '/workout/:muscletype' }
+    { component: WorkoutView, path: '/workout/:muscletype' },
+    {
+      component: GymMapView,
+      path: '/map'
+    }
   ]
 })
 
