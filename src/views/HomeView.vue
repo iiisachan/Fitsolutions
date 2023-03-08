@@ -70,14 +70,6 @@
     <h1 class="logo-quote">Bli bättre varje dag, från och med idag.</h1>
   </div>
   <b-container>
-    <b-button
-      to="/muscle"
-      class="Buttons"
-      v-if="isLoggedIn === true"
-      variant="success"
-      >Se träningar</b-button
-    >
-
     <b-row>
       <b-button
         to="/register"
