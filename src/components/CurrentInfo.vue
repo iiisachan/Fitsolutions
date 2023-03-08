@@ -2,20 +2,22 @@
   <h2 id="information-text">Aktuellt</h2>
   <div>
     <b-card-group class="card-group" deck>
-      <b-card
-        class="main-cards"
-        title="Protein Shakes"
-        img-src="assets/protein-img.jpg"
-        img-alt="Protein shake that can be made in store."
-        img-top
-        tag="article"
-        style="max-width: 20rem"
-        img-height="300px"
-      >
+      <router-link to="/workoutshop">
+        <b-card
+          class="main-cards"
+          title="Protein Shakes"
+          img-src="assets/protein-img.jpg"
+          img-alt="Protein shake that can be made in store."
+          img-top
+          tag="article"
+          style="max-width: 20rem"
+          img-height="300px"
+        />
+
         <b-card-text>
           I kiosken kan du köpa våra extra goa protein shakes.
         </b-card-text>
-      </b-card>
+      </router-link>
       <b-card
         class="main-cards"
         title="Ta del av gym i närheten."
