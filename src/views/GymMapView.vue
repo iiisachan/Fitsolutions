@@ -1,8 +1,11 @@
 <template>
   <div>
-    <h1>Dina koordinater</h1>
-    <p class="coordinates">{{ coordinates }}</p>
-    <div ref="map" style="height: 400px" />
+    <h1>Hitta Gym</h1>
+    <div class="map-controls">
+      <button @click="zoomIn">+</button>
+      <button @click="zoomOut">-</button>
+    </div>
+    <div class="map" ref="map" />
   </div>
 </template>
 
@@ -12,7 +15,6 @@
   export default {
     data() {
       return {
-        coordinates: '',
         map: null,
         mapboxToken:
           'pk.eyJ1IjoiYXdhbHRoZXJyIiwiYSI6ImNsZXlidzEwbDJqOGMzc3AxODZza2R5aDAifQ.BlU81_YGfwWReZNAgZmtpw'
@@ -22,11 +24,12 @@
       getLocation() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
-            this.coordinates = `Latitud: ${position.coords.latitude}, Longitud: ${position.coords.longitude}`
-            this.showMap(position.coords.longitude, position.coords.latitude)
+            const longitude = position.coords.longitude
+            const latitude = position.coords.latitude
+            this.showMap(longitude, latitude)
           })
         } else {
-          alert('Geolocation is not supported')
+          alert('Geolocation stöds inte på enheten')
         }
       },
       showMap(longitude, latitude) {
@@ -35,9 +38,15 @@
           container: this.$refs.map,
           style: 'mapbox://styles/mapbox/streets-v11',
           center: [longitude, latitude],
-          zoom: 14
+          zoom: 14,
+          scrollZoom: false
         })
-        new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(this.map)
+      },
+      zoomIn() {
+        this.map.zoomIn()
+      },
+      zoomOut() {
+        this.map.zoomOut()
       }
     },
     mounted() {
@@ -47,8 +56,9 @@
 </script>
 
 <style>
-  .coordinates {
-    text-align: center;
-    margin-bottom: 80px;
+  .map {
+    height: 800px;
+    position: relative;
+    cursor: grab;
   }
 </style>

@@ -42,6 +42,12 @@ const mutations = {
       if (userIndex !== -1) {
         state.users[userIndex] = payload
       }
+    },
+    addToCart(state, product) {
+      state.cart.push(product)
+    },
+    removeFromCart(state, index) {
+      state.cart.splice(index, 1)
     }
   },
   state = {
@@ -334,7 +340,9 @@ const mutations = {
         }
       ]
     },
-    users: []
+    users: [],
+
+    cart: []
   }
 
 export default createStore({ actions, mutations, state, strict: true })
