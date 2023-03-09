@@ -2,7 +2,11 @@
   <div>
     <h1>Träningskläder</h1>
     <ul class="product-list">
-      <li v-for="product in products" :key="product.id" class="product-item">
+      <li
+        v-for="(product, index) in products"
+        :key="index"
+        class="product-item"
+      >
         <div class="product-image-container">
           <img
             :src="'./public/' + product.img"
@@ -21,9 +25,9 @@
     <div class="cart-container">
       <h2>Kundvagn</h2>
       <ul class="cart-items">
-        <li v-for="item in cartItems" :key="item.id">
-          {{ item.produkt }} - {{ item.pris }} kr
-          <button @click="removeFromCart(item)">Ta bort</button>
+        <li v-for="(item, index) in cartItems" :key="index">
+          {{ item.produkt }} {{ item.pris }} kr
+          <button @click="removeFromCart(index)">Ta bort</button>
         </li>
       </ul>
       <p>Totalt: {{ total }} kr</p>
@@ -49,6 +53,21 @@
         .catch((error) => {
           console.log(error)
         })
+    },
+    methods: {
+      addToCart(product) {
+        this.$store.commit('addToCart', product)
+        console.log(product)
+      },
+      removeFromCart(index) {
+        this.$store.commit('removeFromCart', index)
+        console.log(index)
+      }
+    },
+    computed: {
+      cartItems() {
+        return this.$store.state.cart
+      }
     }
   }
 </script>
