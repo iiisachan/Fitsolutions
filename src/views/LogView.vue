@@ -11,11 +11,12 @@
           workout: null,
           sets: []
         },
-        checkSelected: '',
+        checkSelected: null,
         checkOptions: ['Övningar', 'Lägg till egen'],
         set: 1,
         weight: [],
-        reps: []
+        reps: [],
+        show: false
       }
     },
     computed: {},
@@ -26,12 +27,20 @@
         }
 
         console.log(JSON.stringify(this.form))
-        // this.onReset()
+        this.onReset()
       },
       onReset() {
         this.form.date = `${new Date().toLocaleDateString()}`
-        this.form.muscle = null
         this.form.workout = null
+        this.form.sets = []
+        this.checkSelected = null
+        this.set = 1
+        this.weight = []
+        this.reps = []
+        this.show = false
+      },
+      hide() {
+        this.show = !this.show
       }
     }
   }
@@ -47,36 +56,34 @@
 
   <h1 class="title">Träningsdagbok</h1>
 
-  <div class="add-container">
+  <div class="add-container" @click="hide" v-if="show === false">
     <font-awesome-icon class="logg-icon" icon="fa-solid fa-plus" />
     <p class="logg-titel">Lägg till aktivitet</p>
   </div>
 
-  <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
-    <b-form-group label="Datum" label-for="date">
-      <b-form-input
-        type="date"
-        id="date"
-        v-model="form.date"
-        :max="`${new Date().toLocaleDateString()}`"
-      />
-    </b-form-group>
-
-    <b-form-group label="Workout type" label-for="workoutType">
+  <b-form
+    class="log-form"
+    @submit.prevent="onSubmit"
+    @reset.prevent="onReset"
+    v-if="show === true"
+  >
+    <!-- WORKOUT TYPE -->
+    <b-form-group label="Workout type">
       <b-form-radio-group
         v-model="checkSelected"
         :options="checkOptions"
         buttons
+        button-variant="outline-secondary"
       />
-      {{ checkSelected }}
     </b-form-group>
-
-    <b-form-group
-      label="Aktivitet"
-      label-for="workout"
-      v-if="checkSelected === 'Övningar'"
-    >
-      <b-form-select id="workout" v-model="form.workout">
+    <!-- AKTIVITET -->
+    <b-form-group label="Aktivitet" v-if="checkSelected !== null">
+      <b-form-select
+        id="workout"
+        v-model="form.workout"
+        v-if="checkSelected === 'Övningar'"
+      >
+        <!-- ÖVNINGAR -->
         <optgroup
           v-for="(value, key) in $store.state.workout"
           :key="key"
@@ -87,23 +94,49 @@
           </option>
         </optgroup>
       </b-form-select>
+      <!-- LÄGG TILL EGEN -->
+      <b-form-input
+        v-if="checkSelected === 'Lägg till egen'"
+        v-model="form.workout"
+      />
+      <!-- SETS -->
+      <b-form-group label="Sets:" label-for="sets">
+        <!-- <label for="sets">Sets: </label> -->
+        <b-form-spin-button size="sm" id="sets" v-model="set" />
+      </b-form-group>
+      <b-form-group
+        class="sets"
+        v-for="(x, index) in set"
+        :key="x"
+        :label="`Set ${x}:`"
+      >
+        <!-- SET INPUT -->
+        <b-form-input
+          class="set-input"
+          placeholder="Vikt"
+          v-model="weight[index]"
+        />
+        <b-form-input
+          class="set-input"
+          placeholder="Reps"
+          v-model="reps[index]"
+        />
+      </b-form-group>
+      <!-- DATE -->
+      <b-form-group label="Datum" label-for="date">
+        <b-form-input
+          type="date"
+          id="date"
+          v-model="form.date"
+          :max="`${new Date().toLocaleDateString()}`"
+        />
+      </b-form-group>
     </b-form-group>
 
-    <b-form-group lablel="Aktivitet" v-if="checkSelected === 'Lägg till egen'">
-      <b-form-input v-model="form.workout" />
-    </b-form-group>
-
-    <b-form-group>
-      <b-form-group label="Sets:">
-        <b-form-spin-button inline id="sets" v-model="set" />
-      </b-form-group>
-      <b-form-group v-for="(x, index) in set" :key="x" :label="`Set ${x}`">
-        <b-form-input placeholder="Vikt" v-model="weight[index]" />
-        <b-form-input placeholder="Reps" v-model="reps[index]" required />
-      </b-form-group>
-    </b-form-group>
-    <b-button type="submit"> Spara </b-button>
-    <b-button type="reset"> Avbryt </b-button>
+    <div class="btn-container" v-if="checkSelected !== null">
+      <b-button pill type="submit" variant="success"> Spara </b-button>
+      <b-button pill type="reset" variant="outline-dark"> Avbryt </b-button>
+    </div>
   </b-form>
 </template>
 
@@ -115,6 +148,7 @@
     border: 1px solid gray;
     border-radius: 15px;
     margin: 1rem 2rem;
+    cursor: pointer;
   }
   .logg-icon {
     height: 20px;
@@ -124,5 +158,35 @@
     font-weight: 600;
     font-size: 20px;
     margin: 0 10px;
+  }
+
+  .log-form {
+    margin: 2rem auto;
+    max-width: 300px;
+  }
+
+  /* .log-form input,
+  #sets,
+  .log-form select,
+  .log-form label {
+    max-width: 300px;
+    margin: 10px auto;
+  } */
+
+  #sets {
+    height: 38px;
+  }
+  .set-input {
+    margin-bottom: 10px;
+  }
+
+  .btn-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .btn-container .btn {
+    min-width: 100px;
   }
 </style>

@@ -184,7 +184,7 @@
                 v-model="modalinput"
                 type="email"
                 placeholder="Email adress"
-                class="form-control"
+                class="form-control email-input"
               />
             </div>
           </div>
@@ -397,7 +397,7 @@
   }
 
   @media (max-width: 775px) {
-    .form-control {
+    .email-input {
       width: 300px;
       margin: 0 auto;
     }
