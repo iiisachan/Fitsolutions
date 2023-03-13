@@ -30,20 +30,6 @@
   const auth = getAuth(app)
 
   export default {
-    //   const isLoggedIn = ref(false)
-    //   let auth
-    //   onMounted(() => {
-    //     auth = getAuth()
-    //     onAuthStateChanged(auth, (user) => {
-    //       if (user) {
-    //         isLoggedIn.value = true
-    //       } else {
-    //         isLoggedIn.value = false
-    //       }
-    //     })
-    //   })
-    // },
-
     components: {},
 
     data() {
@@ -54,20 +40,15 @@
         name: '',
         profilePicture: '',
         currentUserName: '',
-        displayName: ''
+        displayName: null,
+        currentUser: null,
+        cWeight: '',
+        gWeight: ''
       }
     },
+
     methods: {},
     mounted() {
-      //   onAuthStateChanged(getAuth(), function (user) {
-      //     if (user) {
-      //       const currentUser = getAuth().currentUser
-      //       console.log(currentUser)
-      //       this.isLoggedIn.value === true // if we have a user
-      //     } else {
-      //       this.isLoggedIn.value = false // if we do not
-      //     }
-      //   }),
       axios
         .get('https://type.fit/api/quotes')
         .then((response) => {
@@ -82,36 +63,24 @@
     created() {
       const latestQuery = query(collection(db, 'users'))
       onSnapshot(latestQuery, (snapshot) => {
+        this.currentUser = auth.currentUser
         this.users = snapshot.docs.map((doc) => {
           return {
             userName: doc.data().userName,
             gWeight: doc.data().goalWeight,
-            cweight: doc.data().currentWeight,
+            cWeight: doc.data().currentWeight,
             displayName: doc.data().displayName,
-            name: doc.data().name,
-            profilePicture: doc.data().profilePicture
+            name: doc.data().name
           }
         })
-        const userData = this.users.find((user) => {
-          const currentUser = auth().currentUser
-          user.userName === currentUser.email
-          this.displayName = userData.displayName
-          console.log(currentUser)
-        })
+        console.log(this.users)
+        this.displayName = auth.currentUser.displayName
+        const currentUser = this.users
+        currentUser.find((user) => user.userName === this.currentUser.email)
+        this.cWeight = currentUser.cWeight
+        this.gWeight = currentUser.gWeight
       })
     }
-
-    // checkUser() {
-    //   const auth = getAuth()
-    //   onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-    //       // const uid = user.uid
-    //       // signInWithRedirect(uid)
-    //     } else {
-    //       console.log('No user is signed in')
-    //     }
-    //   })
-    // }
   }
 </script>
 
@@ -164,15 +133,15 @@
     <b-col
       ><img class="profile-picture" src="assets/profile-picture.jpg" alt=""
     /></b-col>
-    <b-col class="profile-name h1">{{ currentUser.displayName }}</b-col>
+    <b-col class="profile-name h1">{{ displayName }}</b-col>
   </b-container>
   <b-container>
     <b-row>
-      <b-col> Nuvarande Vikt: </b-col>
+      <b-col> Nuvarande Vikt: {{ this.cWeight }} </b-col>
       <b-col class="text-center"
         ><font-awesome-icon icon="fa-solid fa-arrow-right"
       /></b-col>
-      <b-col class="text-start">Mål vikt:</b-col>
+      <b-col class="text-start">Mål vikt: {{ this.gWeight }}</b-col>
     </b-row>
   </b-container>
 </template>

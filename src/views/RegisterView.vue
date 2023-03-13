@@ -17,7 +17,6 @@
     // query
   } from 'firebase/firestore'
   import router from '../router'
-  import { ref } from 'vue'
 
   const firebaseConfig = {
     apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
@@ -45,7 +44,7 @@
         userName: '',
         currentWeight: '',
         goalWeight: '',
-        displayName: ref('')
+        displayName: ''
       }
     },
     methods: {
@@ -69,6 +68,7 @@
               console.log('Profile Updated')
 
               console.log(currentUser)
+              console.log(auth.currentUser.displayName)
             })
           })
 
