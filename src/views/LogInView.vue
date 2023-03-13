@@ -11,8 +11,10 @@
     signInWithEmailAndPassword(getAuth(), email.value, password.value)
       // eslint-disable-next-line no-unused-vars
       .then((data) => {
+        const auth = getAuth()
+        const user = auth.currentUser
         router.push('/')
-        console.log('Sucessfully signed in!')
+        console.log('Sucessfully signed in:' + user)
       })
       .catch((error) => {
         console.log(error.code)
