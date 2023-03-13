@@ -5,9 +5,9 @@
       <router-link to="/workoutshop">
         <b-card
           class="main-cards"
-          title="Protein Shakes"
-          img-src="assets/protein-img.jpg"
-          img-alt="Protein shake that can be made in store."
+          title="Träningskläder"
+          img-src="assets/gymclothes-img.jpg"
+          img-alt="Gym clothes you can buy in store."
           img-top
           tag="article"
           style="max-width: 20rem"
@@ -15,11 +15,10 @@
         />
 
         <b-card-text>
-          I kiosken kan du köpa våra extra goa protein shakes.
+          I vår e-handdel kan du köpaa vår senate kollektion.
         </b-card-text>
       </router-link>
       <b-card
-        class="main-cards"
         title="Ta del av gym i närheten."
         img-src="assets/pullup-img.jpg"
         img-alt="Man that does a pullup."
