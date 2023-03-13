@@ -1,6 +1,59 @@
 <template>
   <div>
     <h1>Träningskläder</h1>
+    <b-button
+      id="kundkorg"
+      pill
+      variant="success"
+      class="btn btn-primary"
+      @click="showModal = true"
+    >
+      Visa kundkorg ({{ cartItems.length }})
+    </b-button>
+    <b-modal v-model="showModal" title="Shopping cart">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title">Shopping cart</h5> -->
+          <button type="button" class="close" @click="showModal = false">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <tbody>
+              <tr v-for="(item, index) in cartItems" :key="index">
+                <td>{{ item.produkt }}</td>
+                <td>{{ item.pris }} kr</td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-danger"
+                    @click="removeFromCart(index)"
+                  >
+                    &times;
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th />
+                <th>{{ total }} kr</th>
+                <th />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            @click="showModal = false"
+          >
+            Fortsätt handla
+          </button>
+          <button type="button" class="btn btn-primary">Gå till kassan</button>
+        </div>
+      </div>
+    </b-modal>
+
     <ul class="product-list">
       <li
         v-for="(product, index) in products"
@@ -18,29 +71,23 @@
           <h3>{{ product.produkt }}</h3>
           <p>{{ product.färg }}</p>
           <p>{{ product.pris }} kr</p>
-          <button @click="addToCart(product)">Lägg till i varukorgen</button>
+          <button class="varukorg" @click="addToCart(product)">
+            Lägg till i varukorgen
+          </button>
         </div>
       </li>
     </ul>
-    <div class="cart-container">
-      <h2>Kundvagn</h2>
-      <ul class="cart-items">
-        <li v-for="(item, index) in cartItems" :key="index">
-          {{ item.produkt }} {{ item.pris }} kr
-          <button @click="removeFromCart(index)">Ta bort</button>
-        </li>
-      </ul>
-      <p>Totalt: {{ total }} kr</p>
-    </div>
   </div>
 </template>
+
 <script>
   import axios from 'axios'
 
   export default {
     data() {
       return {
-        products: []
+        products: [],
+        showModal: false
       }
     },
 
@@ -67,15 +114,25 @@
     computed: {
       cartItems() {
         return this.$store.state.cart
+      },
+      total() {
+        return this.cartItems.reduce((acc, item) => acc + item.pris, 0)
       }
     }
   }
 </script>
+
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
   body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+  h1 {
+    font-family: 'Open Sans', sans-serif;
+
+    font-size: 50px;
   }
 
   .product-list {
@@ -130,16 +187,41 @@
     font-size: 0.9rem;
     color: #999;
   }
+  #kundkorg {
+    font-size: 18px;
+    margin-bottom: 19px;
+    margin-left: 10px;
+  }
 
+  .varukorg {
+    font-weight: 500;
+    margin-top: 4px;
+    border-radius: 8px;
+    padding: 5px;
+    transition-duration: 0.8s;
+  }
+
+  .varukorg:hover {
+    background-color: #4caf50;
+    color: white;
+  }
+  .modal-content {
+    max-width: 1000px;
+  }
   @media (min-width: 600px) {
     .product-list {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 
   @media (min-width: 900px) {
     .product-list {
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      margin-left: 5px;
+      margin-right: 5px;
+      height: auto;
     }
   }
 </style>
