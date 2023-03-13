@@ -34,12 +34,10 @@ import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import firebaseInit from './firebase/firebaseInit'
 
 createApp(App)
   .use(router)
   .use(store)
-  .use(firebaseInit)
   .component('font-awesome-icon', FontAwesomeIcon)
   .mount('#app')
 

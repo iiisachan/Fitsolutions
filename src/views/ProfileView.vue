@@ -1,11 +1,34 @@
-<script setup>
-  import axios from 'axios'
-  // import { onMounted, ref } from 'vue'
-  // import { getAuth, onAuthStateChanged } from '@firebase/auth'
-  import { useStore } from 'vuex'
-  // eslint-disable-next-line no-unused-vars
-</script>
 <script>
+  import axios from 'axios'
+  import { getAuth } from 'firebase/auth'
+  import { initializeApp } from 'firebase/app'
+  import {
+    getFirestore,
+    onSnapshot,
+    collection,
+    // doc,
+    // deleteDoc,
+    // setDoc,
+    // addDoc,
+    // orderBy,
+    query
+  } from 'firebase/firestore'
+  import { ref } from 'vue'
+
+  const firebaseConfig = {
+    apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
+    authDomain: 'fitsolutions-3ac43.firebaseapp.com',
+    projectId: 'fitsolutions-3ac43',
+    storageBucket: 'fitsolutions-3ac43.appspot.com',
+    messagingSenderId: '434221025986',
+    appId: '1:434221025986:web:716ab35ae88958fdce095b',
+    measurementId: 'G-KBNBRP0BG2'
+  }
+
+  const app = initializeApp(firebaseConfig)
+  const db = getFirestore(app)
+  const auth = getAuth(app)
+
   export default {
     //   const isLoggedIn = ref(false)
     //   let auth
@@ -20,22 +43,31 @@
     //     })
     //   })
     // },
-    setup() {
-      const store = useStore()
 
-      return {
-        // eslint-disable-next-line no-undef
-        users: computed(() => store.state.users)
-      }
-    },
     components: {},
 
     data() {
       return {
-        quotes: []
+        quotes: [],
+        users: ref([]),
+        isLoggedIn: false,
+        name: '',
+        profilePicture: '',
+        currentUserName: '',
+        displayName: ''
       }
     },
+    methods: {},
     mounted() {
+      //   onAuthStateChanged(getAuth(), function (user) {
+      //     if (user) {
+      //       const currentUser = getAuth().currentUser
+      //       console.log(currentUser)
+      //       this.isLoggedIn.value === true // if we have a user
+      //     } else {
+      //       this.isLoggedIn.value = false // if we do not
+      //     }
+      //   }),
       axios
         .get('https://type.fit/api/quotes')
         .then((response) => {
@@ -46,7 +78,40 @@
           console.log(error)
           this.errored = true
         })
+    },
+    created() {
+      const latestQuery = query(collection(db, 'users'))
+      onSnapshot(latestQuery, (snapshot) => {
+        this.users = snapshot.docs.map((doc) => {
+          return {
+            userName: doc.data().userName,
+            gWeight: doc.data().goalWeight,
+            cweight: doc.data().currentWeight,
+            displayName: doc.data().displayName,
+            name: doc.data().name,
+            profilePicture: doc.data().profilePicture
+          }
+        })
+        const userData = this.users.find((user) => {
+          const currentUser = auth().currentUser
+          user.userName === currentUser.email
+          this.displayName = userData.displayName
+          console.log(currentUser)
+        })
+      })
     }
+
+    // checkUser() {
+    //   const auth = getAuth()
+    //   onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //       // const uid = user.uid
+    //       // signInWithRedirect(uid)
+    //     } else {
+    //       console.log('No user is signed in')
+    //     }
+    //   })
+    // }
   }
 </script>
 
@@ -99,19 +164,15 @@
     <b-col
       ><img class="profile-picture" src="assets/profile-picture.jpg" alt=""
     /></b-col>
-    <b-col class="profile-name h1">Namn</b-col>
+    <b-col class="profile-name h1">{{ currentUser.displayName }}</b-col>
   </b-container>
   <b-container>
     <b-row>
-      <b-col>
-        Nuvarande Vikt: {{ this.$store.state.users[0].currentWeight }}
-      </b-col>
+      <b-col> Nuvarande Vikt: </b-col>
       <b-col class="text-center"
         ><font-awesome-icon icon="fa-solid fa-arrow-right"
       /></b-col>
-      <b-col class="text-start"
-        >Mål vikt: {{ this.$store.state.users[0].goalWeight }}</b-col
-      >
+      <b-col class="text-start">Mål vikt:</b-col>
     </b-row>
   </b-container>
 </template>
