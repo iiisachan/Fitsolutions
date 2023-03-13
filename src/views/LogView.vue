@@ -1,6 +1,6 @@
-<!-- $store.state.workout.ben[1].name // Barbell Squat -->
-<!--  Object.keys($store.state.workout)[1] // chest -->
-<!-- Object.keys($store.state.workout) // [ "ben", "chest", "rygg", "arm", "mage" ] -->
+<!--  {
+  date: 2023 - 03 - 13,
+  data: [{ workout: 'push up', sets: [{ weight: 1, reps: 25 }] }], -->
 
 <script>
   export default {
@@ -13,20 +13,41 @@
         },
         checkSelected: null,
         checkOptions: ['Övningar', 'Lägg till egen'],
+        showForm: false,
         set: 1,
         weight: [],
         reps: [],
-        show: false
+        log: null
       }
     },
-    computed: {},
+    mounted() {
+      if (localStorage.log !== undefined) {
+        this.log = JSON.parse(localStorage.log)
+      }
+      window.addEventListener('logUpdate', (e) => {
+        this.log = e.detail.storage
+      })
+    },
     methods: {
       onSubmit() {
         for (let i = 0; i < this.set; i++) {
-          this.form.sets.push({ weight: this.weight[i], reps: this.weight[i] })
+          this.form.sets.push({
+            weight: this.weight[i],
+            reps: this.reps[i]
+          })
         }
 
-        console.log(JSON.stringify(this.form))
+        let oldLog = JSON.parse(localStorage.getItem('log')) || []
+        oldLog.push(this.form)
+        localStorage.setItem('log', JSON.stringify(oldLog))
+
+        window.dispatchEvent(
+          new CustomEvent('logUpdate', {
+            detail: { storage: JSON.parse(localStorage.getItem('log')) }
+          })
+        )
+
+        console.log(JSON.stringify(oldLog))
         this.onReset()
       },
       onReset() {
@@ -37,12 +58,20 @@
         this.set = 1
         this.weight = []
         this.reps = []
-        this.show = false
+        this.showForm = false
       },
       hide() {
-        this.show = !this.show
+        this.showForm = !this.showForm
       }
     }
+    // computed: {
+    //   test() {
+    //     for (let i = 0; i < this.log.length; i++) {
+    //       if (this.log[i])
+    //     }
+    //     return 1
+    //   }
+    // }
   }
 </script>
 
@@ -56,7 +85,7 @@
 
   <h1 class="title">Träningsdagbok</h1>
 
-  <div class="add-container" @click="hide" v-if="show === false">
+  <div class="add-container" @click="hide">
     <font-awesome-icon class="logg-icon" icon="fa-solid fa-plus" />
     <p class="logg-titel">Lägg till aktivitet</p>
   </div>
@@ -65,7 +94,7 @@
     class="log-form"
     @submit.prevent="onSubmit"
     @reset.prevent="onReset"
-    v-if="show === true"
+    v-if="showForm === true"
   >
     <!-- WORKOUT TYPE -->
     <b-form-group label="Workout type">
@@ -138,6 +167,19 @@
       <b-button pill type="reset" variant="outline-dark"> Avbryt </b-button>
     </div>
   </b-form>
+
+  <div v-if="log !== null">
+    {{ log }}
+    <!-- <p v-for="item in log" :key="item.date">{{ item.date }}</p>
+    {{ log[0].date }} -->
+    <div v-for="value in log" :key="value.date">
+      <h3>{{ value.date }}</h3>
+      <h4>{{ value.workout }}</h4>
+      <p v-for="(item, index) in value.sets" :key="item">
+        Set {{ index + 1 }}: {{ item.reps }}Reps @ {{ item.weight }}kg
+      </p>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -149,6 +191,7 @@
     border-radius: 15px;
     margin: 1rem 2rem;
     cursor: pointer;
+    max-width: 300px;
   }
   .logg-icon {
     height: 20px;
@@ -161,7 +204,7 @@
   }
 
   .log-form {
-    margin: 2rem auto;
+    margin: 2rem;
     max-width: 300px;
   }
 
