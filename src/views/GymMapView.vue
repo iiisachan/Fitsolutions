@@ -11,7 +11,7 @@
 
 <script>
   import mapboxgl from 'mapbox-gl'
-
+  import gymData from '/gymData.json'
   export default {
     data() {
       return {
@@ -38,8 +38,18 @@
           container: this.$refs.map,
           style: 'mapbox://styles/mapbox/streets-v11',
           center: [longitude, latitude],
-          zoom: 14,
+          zoom: 10,
           scrollZoom: false
+        })
+        gymData.forEach((gym) => {
+          const gymMarker = new mapboxgl.Marker()
+            .setLngLat([gym.longitude, gym.latitude])
+            .addTo(this.map)
+          gymMarker.setPopup(
+            new mapboxgl.Popup({ maxWidth: '550px' }).setHTML(
+              `<h3>${gym.name}</h3><p>${gym.adress}</p><a href="${gym.website}">Webbplats</a>`
+            )
+          )
         })
       },
       zoomIn() {
