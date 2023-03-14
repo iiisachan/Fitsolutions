@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { initializeApp } from 'firebase/app'
 
 import {
   faBars,
@@ -21,6 +20,7 @@ import {
   faFacebook,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
+
 
 import { faCircleUser, faHeart } from '@fortawesome/free-regular-svg-icons'
 
@@ -59,8 +59,6 @@ import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
-initializeApp(firebaseConfig)
 
 createApp(App)
   .use(router)

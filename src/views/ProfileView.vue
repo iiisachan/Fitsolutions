@@ -1,40 +1,55 @@
-<script setup>
-  import axios from 'axios'
-  // import { onMounted, ref } from 'vue'
-  // import { getAuth, onAuthStateChanged } from '@firebase/auth'
-  import { useStore } from 'vuex'
-  // eslint-disable-next-line no-unused-vars
-</script>
 <script>
-  export default {
-    //   const isLoggedIn = ref(false)
-    //   let auth
-    //   onMounted(() => {
-    //     auth = getAuth()
-    //     onAuthStateChanged(auth, (user) => {
-    //       if (user) {
-    //         isLoggedIn.value = true
-    //       } else {
-    //         isLoggedIn.value = false
-    //       }
-    //     })
-    //   })
-    // },
-    setup() {
-      const store = useStore()
+  import axios from 'axios'
+  import { getAuth } from 'firebase/auth'
+  import { initializeApp } from 'firebase/app'
+  import {
+    getFirestore,
+    onSnapshot,
+    collection,
+    // doc,
+    // deleteDoc,
+    // setDoc,
+    // addDoc,
+    // orderBy,
+    query
+  } from 'firebase/firestore'
+  import { ref } from 'vue'
+  import { mapState } from 'vuex'
 
-      return {
-        // eslint-disable-next-line no-undef
-        users: computed(() => store.state.users)
-      }
-    },
+  const firebaseConfig = {
+    apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
+    authDomain: 'fitsolutions-3ac43.firebaseapp.com',
+    projectId: 'fitsolutions-3ac43',
+    storageBucket: 'fitsolutions-3ac43.appspot.com',
+    messagingSenderId: '434221025986',
+    appId: '1:434221025986:web:716ab35ae88958fdce095b',
+    measurementId: 'G-KBNBRP0BG2'
+  }
+
+  const app = initializeApp(firebaseConfig)
+  const db = getFirestore(app)
+  const auth = getAuth(app)
+
+  export default {
     components: {},
 
     data() {
       return {
-        quotes: []
+        quotes: [],
+        users: ref([]),
+        isLoggedIn: false,
+        name: '',
+        profilePicture: '',
+        currentUserName: '',
+        displayName: null,
+        currentUser: null,
+        cWeight: null,
+        gWeight: null,
+        email: ''
       }
     },
+
+    methods: {},
     mounted() {
       axios
         .get('https://type.fit/api/quotes')
@@ -46,6 +61,36 @@
           console.log(error)
           this.errored = true
         })
+    },
+    created() {
+      const latestQuery = query(collection(db, 'users'))
+      onSnapshot(latestQuery, (snapshot) => {
+        this.currentUser = auth.currentUser
+        this.users = snapshot.docs.map((doc) => {
+          return {
+            id: doc.id,
+            gWeight: doc.data().goalWeight,
+            cWeight: doc.data().currentWeight,
+            displayName: doc.data().displayName,
+            email: this.currentUser.email
+          }
+        })
+        console.log(this.users)
+        this.displayName = auth.currentUser.displayName
+        this.cWeight = auth.currentUser.currentWeight
+        this.gWeight = auth.currentUser.goalWeight
+        console.log(auth.currentUser)
+      })
+    },
+
+    computed: {
+      ...mapState(['user']),
+      currentWeight() {
+        return this.user ? this.user.cWeight : null
+      },
+      goalWeight() {
+        return this.user ? this.user.gWeight : null
+      }
     }
   }
 </script>
@@ -57,14 +102,14 @@
     max-width: 150px;
     max-height: 150px;
   }
-  /* .profile-container {
+  .profile-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     margin: 50px 0;
-  } */
+  }
   .profile-name {
     justify-content: start;
   }
@@ -96,22 +141,18 @@
     </b-row>
   </b-container>
   <b-container class="profile-container">
-    <b-col
-      ><img class="profile-picture" src="assets/profile-picture.jpg" alt=""
-    /></b-col>
-    <b-col class="profile-name h1">Namn</b-col>
+    <div>
+      <img class="profile-picture" src="assets/profile-picture.jpg" alt="" />
+    </div>
+    <h1 class="profile-name">{{ displayName }}</h1>
   </b-container>
   <b-container>
     <b-row>
-      <b-col>
-        Nuvarande Vikt: {{ this.$store.state.users[0].currentWeight }}
-      </b-col>
+      <b-col> Nuvarande Vikt: {{ this.user.currentWeight }} </b-col>
       <b-col class="text-center"
         ><font-awesome-icon icon="fa-solid fa-arrow-right"
       /></b-col>
-      <b-col class="text-start"
-        >Mål vikt: {{ this.$store.state.users[0].goalWeight }}</b-col
-      >
+      <b-col class="text-start">Mål vikt: {{ this.user.goalWeight }}</b-col>
     </b-row>
   </b-container>
 </template>
