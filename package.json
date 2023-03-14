@@ -12,6 +12,7 @@
     "bootstrap-vue-next": "^0.7.3",
     "firebase": "^9.17.2",
     "firebase-admin": "^11.5.0",
+    "mapbox-gl": "^2.13.0",
     "uuid": "^9.0.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",

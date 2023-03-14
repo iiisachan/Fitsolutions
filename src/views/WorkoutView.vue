@@ -1,9 +1,9 @@
 <script>
-  import WorkoutItems from '../components/WorkoutItem.vue'
+  // import WorkoutItems from '../components/WorkoutItem.vue'
 
   export default {
     components: {
-      WorkoutItems
+      // WorkoutItems
     },
     methods: {},
     computed: {
@@ -35,10 +35,29 @@
     <p class="page-nav-item">{{ this.$route.params.muscletype }}</p>
   </div>
 
-  <div class="accordion workout-container" role="tablist">
+  <!-- <div class="accordion workout-container" role="tablist">
     <template v-for="items in this.workout" :key="items.name">
       <WorkoutItems :items="items" />
     </template>
+  </div>
+   -->
+
+  <div class="workout-container">
+    <b-accordion>
+      <b-accordion-item
+        v-for="items in workout"
+        :key="items.id"
+        :title="items.name"
+      >
+        <video :src="items.img" autoplay muted loop />
+        <div class="like-container">
+          <font-awesome-icon class="like-button" icon="fa-regular fa-heart" />
+          <font-awesome-icon
+            class="like-button"
+            icon="fa-solid fa-heart"
+          /></div
+      ></b-accordion-item>
+    </b-accordion>
   </div>
 </template>
 
@@ -65,54 +84,82 @@
     color: #3a751c;
     text-decoration: underline;
   }
-
   .accordion video {
     max-width: 100%;
   }
 
   .workout-container {
     margin: 3rem 2rem;
+  }
+
+  .accordion {
     row-gap: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
   }
 
-  .workout-card {
+  .accordion-item {
     max-width: 500px;
     width: 100%;
     border: none;
   }
 
-  .workout-card .card-header {
-    border: 1px solid rgba(0, 0, 0, 0.175);
+  .accordion-button {
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #dee2e6;
+  }
+
+  .accordion-button:focus,
+  .accordion-button:not(.collapsed) {
+    background-color: #fff;
+    border-color: #5c5c5c;
+    color: #000;
+  }
+
+  .accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+  }
+
+  .accordion-button:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  .accordion-button.collapsed {
+    border-radius: 10px;
+  }
+
+  .accordion-item:first-of-type .accordion-button {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .accordion-item:last-of-type .accordion-button.accordion-button.collapsed {
+    border-radius: 10px 10px;
+  }
+
+  .accordion-body {
     padding: 0;
-    border-radius: 0;
+    border: 1px solid #5c5c5c;
+    border-top: none;
   }
 
-  .workout-card .collapse {
-    border: none;
+  .like-container {
+    padding: 10px 16px;
+    text-align: end;
   }
 
-  .muscle-button {
-    width: 100%;
-    padding: 1rem 2rem;
-    border-radius: 0;
-  }
-
-  .muscle-button .btn-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .like-button {
+    height: 22px;
+    color: #ff6161;
+    cursor: pointer;
   }
 
   @media (min-width: 950px) {
-    .workout-container {
-      /* grid-template-columns: repeat(2, 1fr); */
-      column-gap: 1rem;
+    .accordion {
+      row-gap: 30px;
     }
 
-    .workout-card {
+    .accordion-item {
       max-width: 600px;
     }
   }

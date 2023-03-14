@@ -1,0 +1,99 @@
+[
+  {
+    "kategori": "Tights",
+    "produkt": "Nike Power Tights",
+    "färg": "Svart",
+    "storlek": "XS",
+    "pris": 499,
+    "img": "/black-tights.png"
+  },
+
+  {
+    "kategori": "Tights",
+    "produkt": "Björn Borg Tights",
+    "färg": "Grå",
+    "storlek": "S",
+    "pris": 599,
+    "img": "/gray-tights.png"
+  },
+  {
+    "kategori": "Tights",
+    "produkt": "Puma W Formknit Seamless Tights",
+    "färg": "Blå",
+    "storlek": "M",
+    "pris": 449,
+    "img": "/blue-tights.png"
+  },
+  {
+    "kategori": "Linnen",
+    "produkt": "Under Armour Threadborne Linne",
+    "färg": "Vit",
+    "storlek": "L",
+    "pris": 249,
+    "img": "/white-tanktop.png"
+  },
+  {
+    "kategori": "Linnen",
+    "produkt": "Reebok ACTIVChill Linne",
+    "färg": "Röd",
+    "storlek": "M",
+    "pris": 199,
+    "img": "/red-tanktop.png"
+  },
+  {
+    "kategori": "Linnen",
+    "produkt": "Nike Dry Element Linne",
+    "färg": "Grön",
+    "storlek": "S",
+    "pris": 299,
+    "img": "/green-tanktop.png"
+  },
+  {
+    "kategori": "Toppar",
+    "produkt": "Nike Prime Tee",
+    "färg": "Svart",
+    "storlek": "S",
+    "pris": 349,
+    "img": "/black-top.png"
+  },
+  {
+    "kategori": "Toppar",
+    "produkt": "Reebok Core Tee",
+    "färg": "Blå",
+    "storlek": "M",
+    "pris": 299,
+    "img": "/blue-top.png"
+  },
+  {
+    "kategori": "Toppar",
+    "produkt": "Puma Rounded Top Tee",
+    "färg": "Lila",
+    "storlek": "L",
+    "pris": 399,
+    "img": "/purple-top.png"
+  },
+  {
+    "kategori": "Shorts",
+    "produkt": "Under Armour Launch Shorts",
+    "färg": "Svart",
+    "storlek": "M",
+    "pris": 399,
+    "img": "/black-shorts.png"
+  },
+  {
+    "kategori": "Shorts",
+    "produkt": "Adidas Squadra Shorts",
+    "färg": "Blå",
+    "storlek": "S",
+    "pris": 199,
+    "img": "/blue-shorts.png"
+  },
+  {
+    "kategori": "Shorts",
+    "produkt": "Nike Dri-FIT Tempo Shorts",
+    "färg": "Grön",
+    "storlek": "L",
+    "pris": 299,
+    "img": "/green-shorts.png"
+  }
+]

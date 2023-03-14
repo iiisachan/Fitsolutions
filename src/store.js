@@ -44,8 +44,35 @@ const actions = {
 }
 
 const mutations = {
+
     setUser(state, user) {
       state.user = user
+
+    addNewWeight(state, weight) {
+      state.currentWeight = weight
+      console.log(state.currentWeight)
+    },
+    addNewWeight2(state, weight) {
+      state.goalWeight = weight
+      console.log(state.goalWeight)
+    },
+    addUser(state, payload) {
+      state.users.push(payload)
+    },
+    updateUser(state, payload) {
+      const userIndex = state.users.findIndex(
+        (user) => user.email === payload.email
+      )
+      if (userIndex !== -1) {
+        state.users[userIndex] = payload
+      }
+    },
+    addToCart(state, product) {
+      state.cart.push(product)
+    },
+    removeFromCart(state, index) {
+      state.cart.splice(index, 1)
+
     }
   },
   state = {
@@ -152,7 +179,7 @@ const mutations = {
       ],
       rygg: [
         {
-          name: 'Machine 45 Degree Back Extension',
+          name: 'Back Extension',
           id: 'back-extension',
           img: '../../assets/back-extension.mp4',
           ref: 'https://musclewiki.com/machine/female/lowerback/machine-45-degree-back-extension'
@@ -338,8 +365,14 @@ const mutations = {
         }
       ]
     },
+
     user: null,
     error: ''
+=======
+    users: [],
+
+    cart: []
+
   }
 
 export default createStore({
