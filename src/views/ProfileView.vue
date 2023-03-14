@@ -14,6 +14,7 @@
     query
   } from 'firebase/firestore'
   import { ref } from 'vue'
+  import { mapState } from 'vuex'
 
   const firebaseConfig = {
     apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
@@ -42,8 +43,9 @@
         currentUserName: '',
         displayName: null,
         currentUser: null,
-        cWeight: '',
-        gWeight: ''
+        cWeight: null,
+        gWeight: null,
+        email: ''
       }
     },
 
@@ -66,20 +68,29 @@
         this.currentUser = auth.currentUser
         this.users = snapshot.docs.map((doc) => {
           return {
-            userName: doc.data().userName,
+            id: doc.id,
             gWeight: doc.data().goalWeight,
             cWeight: doc.data().currentWeight,
             displayName: doc.data().displayName,
-            name: doc.data().name
+            email: this.currentUser.email
           }
         })
         console.log(this.users)
         this.displayName = auth.currentUser.displayName
-        const currentUser = this.users
-        currentUser.find((user) => user.userName === this.currentUser.email)
-        this.cWeight = currentUser.cWeight
-        this.gWeight = currentUser.gWeight
+        this.cWeight = auth.currentUser.currentWeight
+        this.gWeight = auth.currentUser.goalWeight
+        console.log(auth.currentUser)
       })
+    },
+
+    computed: {
+      ...mapState(['user']),
+      currentWeight() {
+        return this.user ? this.user.cWeight : null
+      },
+      goalWeight() {
+        return this.user ? this.user.gWeight : null
+      }
     }
   }
 </script>
@@ -91,14 +102,14 @@
     max-width: 150px;
     max-height: 150px;
   }
-  /* .profile-container {
+  .profile-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     margin: 50px 0;
-  } */
+  }
   .profile-name {
     justify-content: start;
   }
@@ -130,18 +141,18 @@
     </b-row>
   </b-container>
   <b-container class="profile-container">
-    <b-col
-      ><img class="profile-picture" src="assets/profile-picture.jpg" alt=""
-    /></b-col>
-    <b-col class="profile-name h1">{{ displayName }}</b-col>
+    <div>
+      <img class="profile-picture" src="assets/profile-picture.jpg" alt="" />
+    </div>
+    <h1 class="profile-name">{{ displayName }}</h1>
   </b-container>
   <b-container>
     <b-row>
-      <b-col> Nuvarande Vikt: {{ this.cWeight }} </b-col>
+      <b-col> Nuvarande Vikt: {{ this.user.currentWeight }} </b-col>
       <b-col class="text-center"
         ><font-awesome-icon icon="fa-solid fa-arrow-right"
       /></b-col>
-      <b-col class="text-start">Mål vikt: {{ this.gWeight }}</b-col>
+      <b-col class="text-start">Mål vikt: {{ this.user.goalWeight }}</b-col>
     </b-row>
   </b-container>
 </template>

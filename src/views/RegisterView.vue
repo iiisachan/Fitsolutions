@@ -1,22 +1,22 @@
 <script>
   import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    updateProfile
+    getAuth
+    // createUserWithEmailAndPassword,
+    // updateProfile
   } from 'firebase/auth'
   import { initializeApp } from 'firebase/app'
   import {
-    getFirestore,
+    getFirestore
     // onSnapshot,
-    collection,
+    // collection,
     // doc,
     // deleteDoc,
     // setDoc,
-    addDoc
+    // addDoc
     // orderBy,
     // query
   } from 'firebase/firestore'
-  import router from '../router'
+  // import router from '../router'
 
   const firebaseConfig = {
     apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
@@ -36,72 +36,30 @@
   export default {
     data() {
       return {
-        newWeight: 0,
         email: '',
         password: '',
-        firstName: '',
-        lastName: '',
-        userName: '',
+        displayName: '',
         currentWeight: '',
-        goalWeight: '',
-        displayName: ''
+        goalWeight: ''
       }
     },
     methods: {
+      getData() {
+        const userId = auth.instance.currentUser().uid
+        return db.instance.collection('users').document(userId)
+      },
       addNewUser() {
-        addDoc(collection(db, 'users'), {
-          user: this.email,
-          displayName: this.displayName,
-          password: this.password,
-          currentWeight: this.currentWeight,
-          goalWeight: this.goalWeight
-        }).then(() => {
-          createUserWithEmailAndPassword(
-            auth,
-            this.email,
-            this.password,
-            this.displayName
-          ).then(() => {
-            updateProfile(auth.currentUser, {
-              displayName: this.displayName
-            }).then(() => {
-              console.log('Profile Updated')
-
-              console.log(currentUser)
-              console.log(auth.currentUser.displayName)
-            })
+        this.$store
+          .dispatch('registerUser', {
+            email: this.email,
+            password: this.password,
+            displayName: this.displayName,
+            currentWeight: this.currentWeight,
+            goalWeight: this.goalWeight
           })
-
-          console.log('Sucessfully registered:')
-          router.push('/')
-        })
-      }
-    },
-
-    computed: {
-      cWeight: {
-        get() {
-          return this.$store.state.currentWeight
-        },
-        set(weight) {
-          this.$store.commit('addNewWeight', weight)
-        }
-      },
-      nWeight: {
-        get() {
-          return this.$store.state.newWeight
-        },
-        set(weight) {
-          this.$store.commit('addNewWeight', weight)
-        }
-      },
-      gWeight: {
-        get() {
-          return this.$store.state.goalWeight
-        },
-        set(weight) {
-          this.$store.commit('addNewWeight2', weight)
-        }
+          .then(() => {
+            console.log(currentUser, 'User registered successfully')
+          })
       }
     }
   }
@@ -175,6 +133,9 @@
         <b-button class="Buttons" variant="success" @click="addNewUser"
           >Registrera</b-button
         >
+      </b-row>
+      <b-row>
+        <h2>Har du redan ett konto?</h2>
         <b-button class="Buttons" variant="success" to="/login"
           >Logga in</b-button
         >
