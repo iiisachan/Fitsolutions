@@ -78,9 +78,6 @@
           <RouterLink to="/about"> Om </RouterLink>
         </li>
         <li>
-          <RouterLink to="/map"> Hitta Gym </RouterLink>
-        </li>
-        <li>
           <RouterLink to="/contact"> Kontakt </RouterLink>
         </li>
         <li>
@@ -128,7 +125,6 @@
     <RouterView />
   </main>
 
-  <!-- <div class="container my-5"> -->
   <footer class="footer-container">
     <section class="icons">
       <a
@@ -172,13 +168,10 @@
       ></a>
     </section>
 
-    <!-- Section: Form -->
     <section class="">
       <form action="">
-        <!--Grid row-->
         <div class="row d-flex justify-content-center">
           <div class="col-md-5 col-12">
-            <!-- Email input -->
             <div class="form-outline form-white mb-4">
               <input
                 v-model="modalinput"
@@ -190,9 +183,6 @@
           </div>
 
           <div class="col-auto">
-            <!-- <button type="submit" class="btn btn-outline-light mb-4">
-              Prenumerera!
-            </button> -->
             <div>
               <b-button
                 type="submit"
@@ -210,7 +200,6 @@
       </form>
     </section>
 
-    <!-- Section: Text -->
     <section class="beskrivning">
       <p>
         FitSolutions – Vi får dig att uppnå ditt drömresultat på nolltid! -
