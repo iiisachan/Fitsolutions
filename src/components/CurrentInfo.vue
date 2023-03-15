@@ -2,7 +2,7 @@
   <h2 id="information-text">Aktuellt</h2>
   <div>
     <b-card-group class="card-group" deck>
-      <router-link to="/workoutshop">
+      <router-link to="/workoutshop" class="router-card">
         <b-card
           class="main-cards"
           title="Träningskläder"
@@ -19,7 +19,7 @@
         </b-card></router-link
       >
 
-      <router-link to="/map">
+      <router-link to="/map" class="router-card">
         <b-card
           class="main-cards"
           title="Ta del av gym i närheten."
@@ -64,9 +64,23 @@
   /* IMPORTS/FONTS */
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
 
+  .router-card {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .router-card:hover {
+    color: #3a751c;
+    text-decoration: underline;
+  }
+
   .logo-quote {
     font-weight: 500;
     font-size: 40px;
+  }
+
+  .card-img-top {
+    object-position: 50% 0;
   }
 
   #information-text {

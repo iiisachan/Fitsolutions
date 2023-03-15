@@ -7,7 +7,7 @@
           workout: null,
           sets: []
         },
-        checkSelected: null,
+        checkSelected: 'Övningar',
         checkOptions: ['Övningar', 'Lägg till egen'],
         showForm: false,
         set: 1,
@@ -49,7 +49,6 @@
           })
         )
 
-        console.log(JSON.stringify(oldLog))
         this.onReset()
       },
       remove(i) {
@@ -81,11 +80,11 @@
 </script>
 
 <template>
-  <h1 class="title">Träningsdagbok</h1>
+  <h1 class="log-h1">Träningsdagbok</h1>
 
   <div class="add-container" @click="hide">
     <font-awesome-icon class="log-icon" icon="fa-solid fa-plus" />
-    <p class="log-titel">Lägg till aktivitet</p>
+    <p class="log-title">Lägg till aktivitet</p>
   </div>
 
   <b-form
@@ -95,7 +94,7 @@
     v-if="showForm === true"
   >
     <!-- WORKOUT TYPE -->
-    <b-form-group label="Workout type">
+    <b-form-group>
       <b-form-radio-group
         v-model="checkSelected"
         :options="checkOptions"
@@ -106,6 +105,7 @@
     <!-- AKTIVITET -->
     <b-form-group label="Aktivitet" v-if="checkSelected !== null">
       <b-form-select
+        required
         id="workout"
         v-model="form.workout"
         v-if="checkSelected === 'Övningar'"
@@ -128,7 +128,6 @@
       />
       <!-- SETS -->
       <b-form-group label="Sets:" label-for="sets">
-        <!-- <label for="sets">Sets: </label> -->
         <b-form-spin-button size="sm" id="sets" v-model="set" />
       </b-form-group>
       <b-form-group
@@ -149,6 +148,7 @@
           class="set-input"
           placeholder="Reps"
           v-model="reps[index]"
+          required
         />
       </b-form-group>
       <!-- DATE -->
@@ -169,90 +169,52 @@
   </b-form>
 
   <div class="log-container" v-if="log !== null">
-    <!-- <div v-for="(i, index) in newDay" :key="index">
-      {{ `i: ${i}: ${sortDate[i].date}` }}
-      <p v-for="n in i">
-        {{ n }}
-      </p>
-    </div> -->
-
     <div v-for="(value, i) in log" :key="i" class="log-item">
-      <p>{{ value.date }}</p>
+      <p class="log-date">{{ value.date }}</p>
       <font-awesome-icon
         icon="fa-regular fa-trash-can"
         class="trash"
         @click="remove(i)"
       />
-      <h4>{{ value.workout }}</h4>
+      <h5>{{ value.workout }}</h5>
       <div v-for="(item, index) in value.sets" :key="item" class="log-sets">
         <p>Set {{ index + 1 }}:</p>
         <p>{{ item.reps }} Reps</p>
-        <p v-if="item.weight !== undefined">@ {{ item.weight }}kg</p>
+        <p v-if="item.weight > 0">@ {{ item.weight }}kg</p>
       </div>
     </div>
   </div>
 </template>
 
 <style>
-  .trash {
-    color: gray;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
+  .log-h1 {
+    margin: 4rem 2rem;
   }
-
-  .trash:hover {
-    color: #000;
-  }
-
-  .log-sets {
-    display: flex;
-    column-gap: 10px;
-    /* align-items: center; */
-  }
-
-  .log-item {
-    position: relative;
-    padding: 1rem;
-    border: 1px solid gray;
-    border-radius: 15px;
-    max-width: 300px;
-    margin-bottom: 1rem;
-  }
-
   .add-container {
     display: flex;
     align-items: center;
     padding: 1rem;
     border: 1px solid gray;
     border-radius: 15px;
-    margin: 1rem 2rem;
+    margin: 1rem auto;
     cursor: pointer;
     max-width: 300px;
   }
+
   .log-icon {
-    height: 20px;
+    height: 22px;
   }
 
-  .log-titel {
+  .log-title {
     font-weight: 600;
     font-size: 20px;
     margin: 0 10px;
   }
 
   .log-form {
-    margin: 2rem;
+    margin: 2rem auto;
     max-width: 300px;
   }
-
-  /* .log-form input,
-  #sets,
-  .log-form select,
-  .log-form label {
-    max-width: 300px;
-    margin: 10px auto;
-  } */
 
   #sets {
     height: 38px;
@@ -273,5 +235,50 @@
 
   .log-container {
     margin: 2rem;
+  }
+
+  .log-item {
+    position: relative;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 15px;
+    max-width: 300px;
+    margin: 1rem auto;
+  }
+
+  .log-item p {
+    margin-bottom: 5px;
+  }
+
+  .log-date {
+    font-size: 12px;
+  }
+
+  .log-sets {
+    display: flex;
+    column-gap: 10px;
+  }
+
+  .trash {
+    color: gray;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+
+  .trash:hover {
+    color: #000;
+  }
+
+  @media (min-width: 800px) {
+    .add-container,
+    .log-form {
+      max-width: 400px;
+    }
+
+    .log-item {
+      max-width: 400px;
+    }
   }
 </style>

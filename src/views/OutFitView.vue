@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Träningskläder</h1>
+    <h1 class="outfit-title">Träningskläder</h1>
     <b-button
       id="kundkorg"
       pill
@@ -12,11 +12,12 @@
     </b-button>
     <b-modal v-model="showModal" title="Shopping cart" :hide-footer="true">
       <div class="modal-content">
-        <div>
+        <!-- DUPLICATE BUTTON / ISA -->
+        <!-- <div>
           <button type="button" class="close" @click="showModal = false">
             <span>&times;</span>
           </button>
-        </div>
+        </div> -->
         <div>
           <table class="table">
             <tbody>
@@ -135,9 +136,9 @@
     margin: 0;
     padding: 0;
   }
-  h1 {
-    font-family: 'Open Sans', sans-serif;
 
+  .outfit-title {
+    font-family: 'Open Sans', sans-serif;
     font-size: 50px;
   }
 

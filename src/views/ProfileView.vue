@@ -1,4 +1,6 @@
 <script>
+  import LogView from './LogView.vue'
+
   import axios from 'axios'
   import { getAuth } from 'firebase/auth'
   import { initializeApp } from 'firebase/app'
@@ -31,7 +33,7 @@
   const auth = getAuth(app)
 
   export default {
-    components: {},
+    components: { LogView },
 
     data() {
       return {
@@ -192,4 +194,5 @@
       </div>
     </div>
   </b-container>
+  <LogView />
 </template>
