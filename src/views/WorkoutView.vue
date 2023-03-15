@@ -50,13 +50,13 @@
         :title="items.name"
       >
         <video :src="items.img" autoplay muted loop />
-        <div class="like-container">
+        <!-- <div class="like-container">
           <font-awesome-icon class="like-button" icon="fa-regular fa-heart" />
           <font-awesome-icon
             class="like-button"
             icon="fa-solid fa-heart"
-          /></div
-      ></b-accordion-item>
+          /></div> -->
+      </b-accordion-item>
     </b-accordion>
   </div>
 </template>

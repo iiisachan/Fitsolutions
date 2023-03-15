@@ -9,11 +9,8 @@ import {
   faXmark,
   faChevronUp,
   faArrowRight,
-  faPersonRunning,
   faPlus,
-  faHeart as fasHeart,
-  faHeartPulse,
-  faDumbbell
+  faHeart as fasHeart
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGoogle,
@@ -22,7 +19,11 @@ import {
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
 
-import { faCircleUser, faHeart } from '@fortawesome/free-regular-svg-icons'
+import {
+  faCircleUser,
+  faHeart,
+  faTrashCan
+} from '@fortawesome/free-regular-svg-icons'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
@@ -45,12 +46,10 @@ library.add(
   faChevronDown,
   faArrowRight,
   faCircleUser,
-  faPersonRunning,
-  faDumbbell,
   faHeart,
   fasHeart,
   faPlus,
-  faHeartPulse
+  faTrashCan
 )
 
 import 'bootstrap/dist/css/bootstrap.css'

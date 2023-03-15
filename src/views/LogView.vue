@@ -1,7 +1,3 @@
-<!--  {
-  date: 2023 - 03 - 13,
-  data: [{ workout: 'push up', sets: [{ weight: 1, reps: 25 }] }], -->
-
 <script>
   export default {
     data() {
@@ -17,7 +13,7 @@
         set: 1,
         weight: [],
         reps: [],
-        log: null
+        log: []
       }
     },
     mounted() {
@@ -39,6 +35,12 @@
 
         let oldLog = JSON.parse(localStorage.getItem('log')) || []
         oldLog.push(this.form)
+
+        oldLog.sort(function (a, b) {
+          var c = new Date(a.date)
+          var d = new Date(b.date)
+          return d - c
+        })
         localStorage.setItem('log', JSON.stringify(oldLog))
 
         window.dispatchEvent(
@@ -49,6 +51,17 @@
 
         console.log(JSON.stringify(oldLog))
         this.onReset()
+      },
+      remove(i) {
+        let oldLog = JSON.parse(localStorage.getItem('log'))
+        oldLog.splice(i, 1)
+        localStorage.setItem('log', JSON.stringify(oldLog))
+
+        window.dispatchEvent(
+          new CustomEvent('logUpdate', {
+            detail: { storage: JSON.parse(localStorage.getItem('log')) }
+          })
+        )
       },
       onReset() {
         this.form.date = `${new Date().toLocaleDateString()}`
@@ -64,30 +77,15 @@
         this.showForm = !this.showForm
       }
     }
-    // computed: {
-    //   test() {
-    //     for (let i = 0; i < this.log.length; i++) {
-    //       if (this.log[i])
-    //     }
-    //     return 1
-    //   }
-    // }
   }
 </script>
 
 <template>
-  <!-- <font-awesome-icon icon="fa-solid fa-plus" />
-  <font-awesome-icon icon="fa-regular fa-heart" />
-  <font-awesome-icon icon="fa-solid fa-heart" />
-  <font-awesome-icon icon="fa-solid fa-heart-pulse" />
-  <font-awesome-icon icon="fa-solid fa-dumbbell" />
-  <font-awesome-icon icon="fa-solid fa-person-running" /> -->
-
   <h1 class="title">Träningsdagbok</h1>
 
   <div class="add-container" @click="hide">
-    <font-awesome-icon class="logg-icon" icon="fa-solid fa-plus" />
-    <p class="logg-titel">Lägg till aktivitet</p>
+    <font-awesome-icon class="log-icon" icon="fa-solid fa-plus" />
+    <p class="log-titel">Lägg till aktivitet</p>
   </div>
 
   <b-form
@@ -141,11 +139,13 @@
       >
         <!-- SET INPUT -->
         <b-form-input
+          type="number"
           class="set-input"
           placeholder="Vikt"
           v-model="weight[index]"
         />
         <b-form-input
+          type="number"
           class="set-input"
           placeholder="Reps"
           v-model="reps[index]"
@@ -168,21 +168,59 @@
     </div>
   </b-form>
 
-  <div v-if="log !== null">
-    {{ log }}
-    <!-- <p v-for="item in log" :key="item.date">{{ item.date }}</p>
-    {{ log[0].date }} -->
-    <div v-for="value in log" :key="value.date">
-      <h3>{{ value.date }}</h3>
-      <h4>{{ value.workout }}</h4>
-      <p v-for="(item, index) in value.sets" :key="item">
-        Set {{ index + 1 }}: {{ item.reps }}Reps @ {{ item.weight }}kg
+  <div class="log-container" v-if="log !== null">
+    <!-- <div v-for="(i, index) in newDay" :key="index">
+      {{ `i: ${i}: ${sortDate[i].date}` }}
+      <p v-for="n in i">
+        {{ n }}
       </p>
+    </div> -->
+
+    <div v-for="(value, i) in log" :key="i" class="log-item">
+      <p>{{ value.date }}</p>
+      <font-awesome-icon
+        icon="fa-regular fa-trash-can"
+        class="trash"
+        @click="remove(i)"
+      />
+      <h4>{{ value.workout }}</h4>
+      <div v-for="(item, index) in value.sets" :key="item" class="log-sets">
+        <p>Set {{ index + 1 }}:</p>
+        <p>{{ item.reps }} Reps</p>
+        <p v-if="item.weight !== undefined">@ {{ item.weight }}kg</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style>
+  .trash {
+    color: gray;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+
+  .trash:hover {
+    color: #000;
+  }
+
+  .log-sets {
+    display: flex;
+    column-gap: 10px;
+    /* align-items: center; */
+  }
+
+  .log-item {
+    position: relative;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 15px;
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+
   .add-container {
     display: flex;
     align-items: center;
@@ -193,11 +231,11 @@
     cursor: pointer;
     max-width: 300px;
   }
-  .logg-icon {
+  .log-icon {
     height: 20px;
   }
 
-  .logg-titel {
+  .log-titel {
     font-weight: 600;
     font-size: 20px;
     margin: 0 10px;
@@ -231,5 +269,9 @@
 
   .btn-container .btn {
     min-width: 100px;
+  }
+
+  .log-container {
+    margin: 2rem;
   }
 </style>
