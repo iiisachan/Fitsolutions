@@ -12,6 +12,7 @@ import OutFitView from './views/OutFitView.vue'
 import LogBookView from './views/LogBookView.vue'
 import LogView from './views/LogView.vue'
 import GymMapView from './views/GymMapView.vue'
+import CheckOutView from './views/CheckOutView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -51,7 +52,8 @@ const router = createRouter({
     {
       component: GymMapView,
       path: '/map'
-    }
+    },
+    { component: CheckOutView, path: '/checkout' }
   ]
 })
 
