@@ -1,29 +1,52 @@
 import { createStore } from 'vuex'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-import { v4 as uuidv4 } from 'uuid'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile
+} from 'firebase/auth'
+import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import router from './router'
+
+const auth = getAuth()
+const db = getFirestore()
 
 const actions = {
-  registerUser({ commit }, { email, password, cWeight, gWeight }) {
-    // Register the user with Firebase
-    createUserWithEmailAndPassword(getAuth(), email, password)
-      .then((userCredential) => {
-        const user = userCredential.user
-        const newUser = {
-          uuid: uuidv4(),
-          email: user.email,
-          cWeight: cWeight,
-          gWeight: gWeight
-        }
-        commit('addUser', newUser)
-        commit('updateUser', newUser)
-      })
-      .catch((error) => {
-        console.log(error.code)
-        alert(error.message)
-      })
+  registerUser({ commit }, userData) {
+    return new Promise((resolve, reject) => {
+      createUserWithEmailAndPassword(auth, userData.email, userData.password)
+        .then((userCredential) => {
+          const user = userCredential.user
+          updateProfile(user, {
+            displayName: userData.displayName
+          }).then(() => {
+            addDoc(collection(db, 'users'), {
+              uid: user.uid,
+              displayName: userData.displayName,
+              currentWeight: userData.currentWeight,
+              goalWeight: userData.goalWeight
+            }).then(() => {
+              const updatedUser = {
+                ...user,
+                currentWeight: userData.currentWeight,
+                goalWeight: userData.goalWeight
+              }
+              commit('setUser', updatedUser)
+              resolve()
+              router.push('/')
+            })
+          })
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
   }
 }
+
 const mutations = {
+    setUser(state, user) {
+      state.user = user
+    },
     addNewWeight(state, weight) {
       state.currentWeight = weight
       console.log(state.currentWeight)
@@ -340,9 +363,18 @@ const mutations = {
         }
       ]
     },
+
+    user: null,
+    error: '',
     users: [],
 
     cart: []
   }
 
-export default createStore({ actions, mutations, state, strict: true })
+export default createStore({
+  namespaced: true,
+  actions,
+  mutations,
+  state,
+  strict: true
+})

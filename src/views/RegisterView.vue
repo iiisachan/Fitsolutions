@@ -1,76 +1,65 @@
-<script setup>
-  import { ref } from 'vue'
-  import { useStore } from 'vuex'
-  import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-  import { v4 as uuidv4 } from 'uuid'
-  import router from '../router'
-  import { useCollection } from 'vuefire'
-  import { collection } from 'firebase/firestore'
-  import { useFirestore } from 'vuefire'
-  // import firebase from 'firebase'
-
-  const email = ref('')
-  const password = ref('')
-  const cWeight = ref('')
-  const gWeight = ref('')
-  const store = useStore()
-  const db = useFirestore()
-  const users = useCollection(collection(db, ' Z4x4AnyXHe4Z6sl6j3ma'))
-  console.log(users)
-  const register = (cWeight, gWeight) => {
-    console.log(cWeight, gWeight + ' Du har loggat din vikt!')
-    createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-      .then(() => {
-        console.log('Sucessfully Registered!')
-        const id = uuidv4()
-        store.commit('addUser', {
-          id,
-          email: email.value,
-          currentWeight: cWeight,
-          goalWeight: gWeight
-        })
-        router.push('/')
-        // const data = { email: email.value, cWeight: cWeight, gWeight: gWeight }
-        // store.commit('addProfileData', data)
-      })
-      .catch((error) => {
-        console.log(error.code)
-        alert(error.message)
-      })
-  }
-</script>
-
 <script>
+  import {
+    getAuth
+    // createUserWithEmailAndPassword,
+    // updateProfile
+  } from 'firebase/auth'
+  import { initializeApp } from 'firebase/app'
+  import {
+    getFirestore
+    // onSnapshot,
+    // collection,
+    // doc,
+    // deleteDoc,
+    // setDoc,
+    // addDoc
+    // orderBy,
+    // query
+  } from 'firebase/firestore'
+  // import router from '../router'
+
+  const firebaseConfig = {
+    apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
+    authDomain: 'fitsolutions-3ac43.firebaseapp.com',
+    projectId: 'fitsolutions-3ac43',
+    storageBucket: 'fitsolutions-3ac43.appspot.com',
+    messagingSenderId: '434221025986',
+    appId: '1:434221025986:web:716ab35ae88958fdce095b',
+    measurementId: 'G-KBNBRP0BG2'
+  }
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig)
+  const db = getFirestore(app)
+  const auth = getAuth(app)
+  const currentUser = getAuth().currentUser
   export default {
     data() {
       return {
-        newWeight: 0
+        email: '',
+        password: '',
+        displayName: '',
+        currentWeight: '',
+        goalWeight: ''
       }
     },
-    computed: {
-      cWeight: {
-        get() {
-          return this.$store.state.currentWeight
-        },
-        set(weight) {
-          this.$store.commit('addNewWeight', weight)
-        }
+    methods: {
+      getData() {
+        const userId = auth.instance.currentUser().uid
+        return db.instance.collection('users').document(userId)
       },
-      nWeight: {
-        get() {
-          return this.$store.state.newWeight
-        },
-        set(weight) {
-          this.$store.commit('addNewWeight', weight)
-        }
-      },
-      gWeight: {
-        get() {
-          return this.$store.state.goalWeight
-        },
-        set(weight) {
-          this.$store.commit('addNewWeight2', weight)
-        }
+      addNewUser() {
+        this.$store
+          .dispatch('registerUser', {
+            email: this.email,
+            password: this.password,
+            displayName: this.displayName,
+            currentWeight: this.currentWeight,
+            goalWeight: this.goalWeight
+          })
+          .then(() => {
+            console.log(currentUser, 'User registered successfully')
+          })
       }
     }
   }
@@ -124,26 +113,29 @@
 <template>
   <h1>Registrera dig</h1>
   <div class="register-div container">
+    <b-form-group label="För och Efternamn:">
+      <b-form-input type="text" required v-model="this.displayName" />
+    </b-form-group>
     <b-form-group label="Email:">
-      <b-form-input type="text" required v-model="email" />
+      <b-form-input type="text" required v-model="this.email" />
     </b-form-group>
     <b-form-group label="Lösenord:">
-      <b-form-input type="password" required v-model="password" />
+      <b-form-input type="password" required v-model="this.password" />
     </b-form-group>
     <b-form-group label="Nuvarande Vikt:">
-      <b-form-input type="text" v-model="cWeight" />
+      <b-form-input type="text" v-model="this.currentWeight" />
     </b-form-group>
     <b-form-group label="Målvikt:">
-      <b-form-input type="text" v-model="gWeight" />
+      <b-form-input type="text" v-model="this.goalWeight" />
     </b-form-group>
     <b-container>
       <b-row>
-        <b-button
-          class="Buttons"
-          variant="success"
-          @click="register(cWeight, gWeight)"
+        <b-button class="Buttons" variant="success" @click="addNewUser"
           >Registrera</b-button
         >
+      </b-row>
+      <b-row>
+        <h2>Har du redan ett konto?</h2>
         <b-button class="Buttons" variant="success" to="/login"
           >Logga in</b-button
         >
