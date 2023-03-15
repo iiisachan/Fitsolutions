@@ -45,7 +45,7 @@
     <b-row>
       <b-col>
         <div class="error-messages" :class="{ 'has-errors': errors.length }">
-          <p v-show="errors.length">
+          <p class="error-title" v-show="errors.length">
             Vänligen rätta till följande fält i formuläret:
           </p>
           <ul>
@@ -196,7 +196,7 @@
     border-radius: 10px;
   }
 
-  .error-messages p {
+  .error-title {
     padding-top: 10px;
     font-weight: bold;
   }
@@ -249,7 +249,7 @@
     }
 
     .error-messages {
-      width: 40%;
+      width: 60%;
       margin: 40px auto;
     }
   }
