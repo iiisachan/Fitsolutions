@@ -13,7 +13,8 @@ import {
   faPlus,
   faHeart as fasHeart,
   faHeartPulse,
-  faDumbbell
+  faDumbbell,
+  faCreditCard
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGoogle,
@@ -50,7 +51,8 @@ library.add(
   faHeart,
   fasHeart,
   faPlus,
-  faHeartPulse
+  faHeartPulse,
+  faCreditCard
 )
 
 import 'bootstrap/dist/css/bootstrap.css'
