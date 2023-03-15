@@ -44,10 +44,9 @@ const actions = {
 }
 
 const mutations = {
-
     setUser(state, user) {
       state.user = user
-
+    },
     addNewWeight(state, weight) {
       state.currentWeight = weight
       console.log(state.currentWeight)
@@ -72,7 +71,6 @@ const mutations = {
     },
     removeFromCart(state, index) {
       state.cart.splice(index, 1)
-
     }
   },
   state = {
@@ -367,12 +365,10 @@ const mutations = {
     },
 
     user: null,
-    error: ''
-=======
+    error: '',
     users: [],
 
     cart: []
-
   }
 
 export default createStore({

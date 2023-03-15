@@ -107,17 +107,34 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin: 50px 0;
-  }
-  .profile-name {
-    justify-content: start;
+    margin-top: 50px;
   }
   .weight-container {
     margin-top: 40px;
     justify-content: center;
     align-items: center;
     font-size: 20px;
+  }
+
+  .profile-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 150px;
+    gap: 20px;
+  }
+  .h2-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 36px;
+  }
+  .profile-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .quote-container {
@@ -130,6 +147,26 @@
   .quote-gen {
     font-style: italic;
   }
+
+  @media (max-width: 430px) {
+    .profile-container {
+      flex-direction: column;
+    }
+
+    .arrow-svg {
+      display: none;
+    }
+
+    .h2-text {
+      font-size: 24px;
+    }
+
+    .profile-text {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  }
 </style>
 
 <template>
@@ -140,19 +177,19 @@
       </b-col>
     </b-row>
   </b-container>
-  <b-container class="profile-container">
-    <div>
-      <img class="profile-picture" src="assets/profile-picture.jpg" alt="" />
-    </div>
-    <h1 class="profile-name">{{ displayName }}</h1>
-  </b-container>
   <b-container>
-    <b-row>
-      <b-col> Nuvarande Vikt: {{ this.user.currentWeight }} </b-col>
-      <b-col class="text-center"
-        ><font-awesome-icon icon="fa-solid fa-arrow-right"
-      /></b-col>
-      <b-col class="text-start">Mål vikt: {{ this.user.goalWeight }}</b-col>
-    </b-row>
+    <div class="profile-container">
+      <img class="profile-picture" src="assets/profile-picture.jpg" alt="" />
+      <div class="profile-text-container">
+        <h2 class="h2-text">{{ displayName }}</h2>
+        <div class="profile-text">
+          <div>Nuvarande Vikt: {{ this.user.currentWeight }}</div>
+          <div class="arrow-svg">
+            <font-awesome-icon icon="fa-solid fa-arrow-right" />
+          </div>
+          <div>Mål Vikt: {{ this.user.goalWeight }}</div>
+        </div>
+      </div>
+    </div>
   </b-container>
 </template>
