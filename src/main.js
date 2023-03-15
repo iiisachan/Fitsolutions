@@ -9,14 +9,8 @@ import {
   faChevronUp,
   faArrowRight,
   faPlus,
-<<<<<<< HEAD
-  faHeart as fasHeart
-=======
   faHeart as fasHeart,
-  faHeartPulse,
-  faDumbbell,
   faCreditCard
->>>>>>> 8578fb47161ab1a6739b317248df0a6f8a0dffde
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGoogle,
@@ -25,17 +19,13 @@ import {
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
 
-<<<<<<< HEAD
 import {
   faCircleUser,
   faHeart,
   faTrashCan
 } from '@fortawesome/free-regular-svg-icons'
-=======
 
-import { faCircleUser, faHeart } from '@fortawesome/free-regular-svg-icons'
->>>>>>> 8578fb47161ab1a6739b317248df0a6f8a0dffde
-
+/* eslint-disable */
 const firebaseConfig = {
   apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
   authDomain: 'fitsolutions-3ac43.firebaseapp.com',
@@ -45,6 +35,7 @@ const firebaseConfig = {
   appId: '1:434221025986:web:716ab35ae88958fdce095b',
   measurementId: 'G-KBNBRP0BG2'
 }
+/* eslint-enable */
 
 library.add(
   faBars,
@@ -60,12 +51,8 @@ library.add(
   faHeart,
   fasHeart,
   faPlus,
-<<<<<<< HEAD
-  faTrashCan
-=======
-  faHeartPulse,
+  faTrashCan,
   faCreditCard
->>>>>>> 8578fb47161ab1a6739b317248df0a6f8a0dffde
 )
 
 import 'bootstrap/dist/css/bootstrap.css'
