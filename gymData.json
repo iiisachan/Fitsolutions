@@ -64,6 +64,22 @@
     "website": "https://www.sats.se/gym/kompassen/"
   },
   {
+    "type": "SATS",
+    "name": "SATS Eriksberg",
+    "adress": "Kolhamnsgatan 3, 417 61 Göteborg",
+    "latitude": 57.70555,
+    "longitude": 11.9703,
+    "website": "https://www.sats.se/gym/kompassen/"
+  },
+  {
+    "type": "SATS",
+    "name": "SATS Askim",
+    "adress": "Ekonomivägen 6, 436 33 Askim",
+    "latitude": 57.64038,
+    "longitude": 11.946869,
+    "website": "https://www.sats.se/gym/askim/"
+  },
+  {
     "type": "Grand Fitness",
     "name": "Grand Fitness Övre Husargatan",
     "adress": "Övre Husargatan 4, 411 22 Göteborg",
@@ -112,6 +128,14 @@
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-argryte/"
   },
   {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Hönö Östra Hamnen",
+    "adress": "Östra hamnen 1, 475 40 Hönö",
+    "latitude": 57.68402,
+    "longitude": 11.6522,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/hono-astra-hamnen/"
+  },
+  {
     "type": "Fitness24Seven",
     "name": "Fitness24Seven",
     "adress": "Mölndalsvägen 17, 412 63 Göteborg",
@@ -136,12 +160,12 @@
     "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/vastrahamngatan/"
   },
   {
-    "type": "Nordic Wellness",
-    "name": "Nordic Wellness Almedal",
-    "adress": "Falkenbergsgatan 3, 412 85 Göteborg",
-    "latitude": 57.68113,
-    "longitude": 12.00043,
-    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-almedal/"
+    "type": "Friskis & Svettis",
+    "name": "Friskis & Svettis Kvillebäcken",
+    "adress": "Borstbindaregatan 12B, 417 22 Göteborg",
+    "latitude": 57.72108,
+    "longitude": 11.94686,
+    "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/kvillebacken/"
   },
   {
     "type": "Nordic Wellness",
@@ -178,6 +202,22 @@
   {
     "type": "Fitness24Seven",
     "name": "Fitness24Seven",
+    "adress": "Anna Branzells Gata, 415 28 Göteborg",
+    "latitude": 57.732778,
+    "longitude": 12.031389,
+    "website": "https://se.fitness24seven.com/vara-gym/se-vara-gym/goteborg-kviberg/"
+  },
+  {
+    "type": "Fitness24Seven",
+    "name": "Fitness24Seven",
+    "adress": "Kvilletorget 15, 417 04 Göteborg",
+    "latitude": 57.719559,
+    "longitude": 11.947138,
+    "website": "https://se.fitness24seven.com/vara-gym/se-vara-gym/goteborg-kvilletorget/"
+  },
+  {
+    "type": "Fitness24Seven",
+    "name": "Fitness24Seven",
     "adress": "Friggagatan 16, 411 01 Göteborg",
     "latitude": 57.71177,
     "longitude": 11.98856,
@@ -193,7 +233,7 @@
   },
   {
     "type": "Nordic Wellness",
-    "name": "Nordic Wellness Göteborg Kviberg Arena",
+    "name": "Nordic Wellness Kviberg Arena",
     "adress": "Krutvägen 2, 415 28 Göteborg",
     "latitude": 57.73812,
     "longitude": 12.03385,
@@ -208,6 +248,38 @@
     "website": "https://www.sats.se/gym/masthugget/"
   },
   {
+    "type": "SATS",
+    "name": "SATS Mölnlycke",
+    "adress": "Hönekullavägen 13, 435 44 Mölnlycke",
+    "latitude": 57.65618,
+    "longitude": 12.11711,
+    "website": "https://www.sats.se/gym/molnlycke/"
+  },
+  {
+    "type": "SATS",
+    "name": "SATS Sisjön",
+    "adress": "Sisjövägen 49, 436 33 Askim",
+    "latitude": 57.63948,
+    "longitude": 11.95013,
+    "website": "https://www.sats.se/gym/sisjon/"
+  },
+  {
+    "type": "SATS",
+    "name": "SATS Valhalla",
+    "adress": "Valhallagatan 3, 412 51 Göteborg",
+    "latitude": 57.69978,
+    "longitude": 11.99008,
+    "website": "https://www.sats.se/gym/valhalla/"
+  },
+  {
+    "type": "SATS",
+    "name": "SATS Torpavallen",
+    "adress": "Torpavallsgatan 4B, 416 73 Göteborg",
+    "latitude": 57.72371,
+    "longitude": 12.02724,
+    "website": "https://www.sats.se/gym/torpavallen/"
+  },
+  {
     "type": "Nordic Wellness",
     "name": "Nordic Wellness Backaplan",
     "adress": "Gustaf Dalénsgatan 13, 417 05 Göteborg",
@@ -216,12 +288,84 @@
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-backaplan/"
   },
   {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Kallebäck",
+    "adress": "Långfilsgatan 1, 412 77 Göteborg",
+    "latitude": 57.68027,
+    "longitude": 12.00918,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-kalleback/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Dagjämningsgatan",
+    "adress": "Dagjämningsgatan 1, 415 36 Göteborg",
+    "latitude": 57.75109,
+    "longitude": 12.02376,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/kortedala-dagjamningsgatan/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Kortedala Torg",
+    "adress": "Kortedala Torg, 415 35, Göteborg",
+    "latitude": 57.7513,
+    "longitude": 12.03165,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/kortedala-torg/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Fjällgatan",
+    "adress": "Fjällgatan 38, 413 17 Göteborg",
+    "latitude": 57.69522,
+    "longitude": 11.93981,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-fjallgatan/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Guldheden",
+    "adress": "Doktor Fries Torg 15, 413 23 Göteborg",
+    "latitude": 57.68429,
+    "longitude": 11.97199,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-guldheden/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Billdal Skintebo",
+    "adress": "Lilla Skintebovägen 4, 427 34 Billdal",
+    "latitude": 57.58979,
+    "longitude": 11.93892,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/billdal-skintebo/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Vårväderstorget",
+    "adress": "Vårväderstorget 1, 418 31, Göteborg",
+    "latitude": 57.71277,
+    "longitude": 11.89253,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-varvaderstorget/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Floda Centrum",
+    "adress": "Rurik Holms väg 4 , 448 30 Floda",
+    "latitude": 57.8084,
+    "longitude": 12.36235,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/floda-centrum/"
+  },
+  {
     "type": "Hälsoklubb",
     "name": "Eminent Hälsostudio",
     "adress": "Vasagatan 43 B, 411 37 Göteborg",
     "latitude": 57.70077,
     "longitude": 11.97554,
     "website": "https://eminent-halsostudio.se/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Vasagatan",
+    "adress": "Vasagatan 7, 411 24, Göteborg",
+    "latitude": 57.69761,
+    "longitude": 12.96433,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-vasagatan/"
   },
   {
     "type": "Funktionell träning",
@@ -304,6 +448,14 @@
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-ullevi/"
   },
   {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Karl Johansgatan",
+    "adress": "Karl Johansgatan 94, 414 55, Göteborg",
+    "latitude": 57.69281,
+    "longitude": 11.91784,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-karl-johansgatan/"
+  },
+  {
     "type": "Fitness24Seven",
     "name": "Fitness24Seven",
     "adress": "Karl Johansgatan 27, 414 59 Göteborg",
@@ -321,11 +473,27 @@
   },
   {
     "type": "Nordic Wellness",
-    "name": "Nordic Wellness Göteborg Tuve Torg",
+    "name": "Nordic Wellness Tuve Torg",
     "adress": "Tuve torg 8, 417 45 Göteborg",
     "latitude": 57.7559,
     "longitude": 11.92732,
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-tuve-torg/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Kållered",
+    "adress": "Ekenleden 13C, 428 36 Kållered",
+    "latitude": 57.60746,
+    "longitude": 12.0426,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/kallered-ekenleden/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Stigs Center",
+    "adress": "Importgatan 7, 422 46 Hisings Backa",
+    "latitude": 57.7468,
+    "longitude": 11.99514,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-stigs-center/"
   },
   {
     "type": "Motionscenter",
@@ -401,11 +569,75 @@
   },
   {
     "type": "STC",
-    "name": "STC",
+    "name": "STC Almedal",
     "adress": "Nellickevägen 20-22, 412 63 Göteborg",
     "latitude": 57.68828,
     "longitude": 11.9979,
     "website": "https://www.stc.se/klubbar/almedal/"
+  },
+  {
+    "type": "STC",
+    "name": "STC Långedrag",
+    "adress": "Redegatan 1, 42677 Västra Frölunda",
+    "latitude": 57.67317,
+    "longitude": 11.88229,
+    "website": "https://www.stc.se/klubbar/langedrag"
+  },
+  {
+    "type": "STC",
+    "name": "STC Backa Entré",
+    "adress": "Backavägen 3, 41730 Göteborg",
+    "latitude": 57.72378,
+    "longitude": 11.9583,
+    "website": "https://www.stc.se/klubbar/backa-entre/"
+  },
+  {
+    "type": "STC",
+    "name": "STC Björkekärr",
+    "adress": "Smörslottsgatan 26, 41678 Göteborg",
+    "latitude": 57.71579,
+    "longitude": 12.0562,
+    "website": "https://www.stc.se/klubbar/bjorkekarr/"
+  },
+  {
+    "type": "STC",
+    "name": "STC Eriksberg",
+    "adress": "Ostindiefararen 37, 41765 Göteborg",
+    "latitude": 57.69907,
+    "longitude": 11.90985,
+    "website": "https://www.stc.se/klubbar/goteborg-eriksberg/"
+  },
+  {
+    "type": "STC",
+    "name": "STC Högsbohöjd",
+    "adress": "Sjupundsgatan 6, 41481 Göteborg",
+    "latitude": 57.67512,
+    "longitude": 11.91818,
+    "website": "https://www.stc.se/klubbar/goteborg-hogsbohojd/"
+  },
+  {
+    "type": "STC",
+    "name": "STC Majorna",
+    "adress": "Stortoppsgatan 10, 41457 Göteborg",
+    "latitude": 57.6899,
+    "longitude": 11.92419,
+    "website": "https://www.stc.se/klubbar/goteborg-majorna/"
+  },
+  {
+    "type": "STC",
+    "name": "STC Munkebäck",
+    "adress": "Gullbergs Strandgata 3-7, 41104 Göteborg",
+    "latitude": 57.71378,
+    "longitude": 11.9708,
+    "website": "https://www.stc.se/klubbar/platinan/"
+  },
+  {
+    "type": "STC",
+    "name": "STC Platinan",
+    "adress": "Munkebäcks Allé 26, 41673 Göteborg",
+    "latitude": 57.72108,
+    "longitude": 12.02544,
+    "website": "https://www.stc.se/klubbar/goteborg-munkeback/"
   },
   {
     "type": "Fitness24Seven",
@@ -430,6 +662,22 @@
     "latitude": 57.67073,
     "longitude": 11.92738,
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-hogsbo/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Sisjön Datavägen",
+    "adress": "Datavägen 4, 436 32 Askim",
+    "latitude": 57.64073,
+    "longitude": 11.95432,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/sisjon-datavagen/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Sävedalen Glashuset",
+    "adress": "Göteborgsvägen 88, 433 63, Sävedalen",
+    "latitude": 57.73313,
+    "longitude": 12.07628,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/savedalen-glashuset/"
   },
   {
     "type": "Crossfit",
@@ -464,6 +712,14 @@
     "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/aby-arena"
   },
   {
+    "type": "Friskis & Svettis",
+    "name": "Friskis & Svettis Johanneberg",
+    "adress": "Gibraltargatan 3, 412 58 Göteborg",
+    "latitude": 57.6917,
+    "longitude": 11.97758,
+    "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/johanneberg"
+  },
+  {
     "type": "Fitness24Seven",
     "name": "Fitness24Seven",
     "adress": "Rullagergatan 4, 415 26 Göteborg",
@@ -478,6 +734,30 @@
     "latitude": 57.67409,
     "longitude": 11.9345,
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/goteborg-marklandsgatan/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Landvetter Centrum",
+    "adress": "Skansgränd 4, 438 32 Landvetter",
+    "latitude": 57.68665,
+    "longitude": 12.21127,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/landvetter-centrum/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Lerum Göteborgsvägen",
+    "adress": "Göteborgsvägen 3, 443 30 Lerum",
+    "latitude": 57.76718,
+    "longitude": 12.26501,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/lerum-goteborgsvagen/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Lindome Centrum",
+    "adress": "Almåsgången 1, 437 30 , Lindome",
+    "latitude": 57.57742,
+    "longitude": 12.08949,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/lindome-centrum/"
   },
   {
     "type": "Funktionell träning",
@@ -504,12 +784,52 @@
     "website": "https://www.sats.se/gym/torslanda/"
   },
   {
+    "type": "SATS",
+    "name": "SATS Gamlestaden",
+    "adress": "Gamlestads Torg 7, 415 12 Göteborg",
+    "latitude": 57.72789,
+    "longitude": 11.00495,
+    "website": "https://www.sats.se/gym/gamlestaden/"
+  },
+  {
+    "type": "SATS",
+    "name": "SATS Hovås",
+    "adress": "Björklundabacken 2, 436 57 Hovås",
+    "latitude": 57.60091,
+    "longitude": 11.95234,
+    "website": "https://www.sats.se/gym/hovas/"
+  },
+  {
+    "type": "Fitness24Seven",
+    "name": "Fitness24Seven",
+    "adress": "Lergöksgatan 6, 421 50 Västra Frölunda",
+    "latitude": 57.655743,
+    "longitude": 11.8993063,
+    "website": "https://se.fitness24seven.com/vara-gym/se-vara-gym/goteborg-frolunda/"
+  },
+  {
     "type": "Friskis & Svettis",
     "name": "Friskis & Svettis Frölunda",
     "adress": "Lergöksgatan 8, 421 50 Västra Frölunda",
     "latitude": 57.65619,
     "longitude": 11.90085,
     "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/frolunda"
+  },
+  {
+    "type": "Friskis & Svettis",
+    "name": "Friskis & Svettis Nya Hovås",
+    "adress": "Hedtångsvägen 20, 436 53 Hovås",
+    "latitude": 57.59849,
+    "longitude": 11.95323,
+    "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/nya-hovas"
+  },
+  {
+    "type": "Friskis & Svettis",
+    "name": "Friskis & Svettis Nya Hovås",
+    "adress": "Hedtångsvägen 20, 436 53 Hovås",
+    "latitude": 57.59849,
+    "longitude": 11.95323,
+    "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/nya-hovas"
   },
   {
     "name": "United Training",
@@ -527,11 +847,51 @@
   },
   {
     "type": "Nordic Wellness",
+    "name": "Nordic Wellness Torslanda Amhult",
+    "adress": "Gamla flygplatsvägen 26, 423 37 Torslanda",
+    "latitude": 57.71028,
+    "longitude": 11.77991,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/torslanda-amhult/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Torslanda Torg",
+    "adress": "Torslanda Torg 1, 423 32, Torslanda",
+    "latitude": 57.72351,
+    "longitude": 11.76725,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/torslanda-torg/"
+  },
+  {
+    "type": "Nordic Wellness",
     "name": "Nordic Wellness Frölunda",
     "adress": "Kontrabasgatan 9, 421 50 Västra Frölunda",
     "latitude": 57.65649,
     "longitude": 11.89892,
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/frolunda-kontrabasgatan/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Sisjön 421",
+    "adress": "KOtto Elanders gata 6, 421 32 Västra Frölunda",
+    "latitude": 57.65085,
+    "longitude": 11.94739,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/sisjon-421/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Gråbo Centrum",
+    "adress": "Mjörnbotorget, 443 42 Gråbo",
+    "latitude": 57.83675,
+    "longitude": 12.29941,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/grabo-centrum/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Frölunda Torg",
+    "adress": "Frölunda Torg, 421 44, Västra Frölunda",
+    "latitude": 57.65213,
+    "longitude": 11.91442,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/frolunda-torg/"
   },
   {
     "type": "Nordic Wellness",
@@ -686,6 +1046,22 @@
     "website": "https://nordicwellness.se/vara-klubbar/goteborg/angered-centrum/"
   },
   {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Partille Mellbyvägen",
+    "adress": "Mellbyvägen 21-23, 433 30 Partille",
+    "latitude": 57.74025,
+    "longitude": 12.09276,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/partille-mellbyvagen/"
+  },
+  {
+    "type": "Nordic Wellness",
+    "name": "Nordic Wellness Mölnlycke Centrum",
+    "adress": "Rörsvängen 17, 435 35 Mölnlycke",
+    "latitude": 57.65787,
+    "longitude": 12.12079,
+    "website": "https://nordicwellness.se/vara-klubbar/goteborg/molnlycke-centrum/"
+  },
+  {
     "type": "Fitness24Seven",
     "name": "Fitness24Seven",
     "adress": "Lennart Kvarnströms Plats 8C, 435 30 Mölnlycke",
@@ -700,5 +1076,21 @@
     "latitude": 57.65919,
     "longitude": 12.11738,
     "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/molnlycke"
+  },
+  {
+    "type": "Friskis & Svettis",
+    "name": "Friskis & Svettis Majorna",
+    "adress": "Karl Johansgatan 152, 414 50 Göteborg",
+    "latitude": 57.68673,
+    "longitude": 11.90815,
+    "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/majorna"
+  },
+  {
+    "type": "Friskis & Svettis",
+    "name": "Friskis & Svettis Torslanda",
+    "adress": "Postflyget 4, 423 37 Torslanda",
+    "latitude": 57.70896,
+    "longitude": 11.77874,
+    "website": "https://www.friskissvettis.se/goteborg/harfinnsvi/torslanda"
   }
 ]

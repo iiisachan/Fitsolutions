@@ -2,19 +2,23 @@
   <div>
     <h1>Hitta Gym i Göteborg</h1>
     <div class="map-controls">
-      <button @click="zoomIn">+</button>
-      <button @click="zoomOut">-</button>
-      <select
-        v-model="selectedGymType"
-        @change="filterByGymType(selectedGymType)"
-      >
-        <option value="">Visa alla gym</option>
-        <option v-for="type in gymTypes" :value="type" :key="type">
-          {{ type }}
-        </option>
-      </select>
+      <div class="gym-filter">
+        <select
+          v-model="selectedGymType"
+          @change="filterByGymType(selectedGymType)"
+        >
+          <option value="">Visa alla gym</option>
+          <option v-for="type in gymTypes" :value="type" :key="type">
+            {{ type }}
+          </option>
+        </select>
+      </div>
     </div>
     <div class="map" ref="map" />
+    <div class="zoom-buttons">
+      <button @click="zoomIn">+</button>
+      <button @click="zoomOut">-</button>
+    </div>
   </div>
 </template>
 
@@ -62,11 +66,13 @@
           const gymMarker = new mapboxgl.Marker()
             .setLngLat([gym.longitude, gym.latitude])
             .addTo(this.map)
-          gymMarker.setPopup(
-            new mapboxgl.Popup({ maxWidth: '550px' }).setHTML(
-              `<h3>${gym.name}</h3><p>${gym.adress}</p><a href="${gym.website}">Webbplats</a>`
+          gymMarker
+            .setPopup(
+              new mapboxgl.Popup({ maxWidth: '550px' }).setHTML(
+                `<h3>${gym.name}</h3><p>${gym.adress}</p><a href="${gym.website}" target="_blank">Webbplats</a>`
+              )
             )
-          )
+            .on('click', () => this.flyToGym(gym.longitude, gym.latitude))
         })
       },
       filterByGymType(selectedGymType) {
@@ -76,6 +82,14 @@
           this.map.getCenter().lat,
           selectedGymType
         )
+      },
+      flyToGym(longitude, latitude) {
+        this.map.flyTo({
+          center: [longitude, latitude],
+          zoom: 15,
+          speed: 1.4,
+          curve: 1.2
+        })
       },
       zoomIn() {
         this.map.zoomIn()
@@ -99,8 +113,31 @@
 
 <style>
   .map {
-    height: 800px;
+    height: 600px;
     position: relative;
     cursor: grab;
+  }
+  .zoom-buttons {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 50px;
+    left: 25px;
+  }
+
+  .zoom-buttons button {
+    margin-bottom: 10px;
+  }
+
+  .mapboxgl-popup {
+    cursor: auto;
+  }
+
+  .mapboxgl-popup-content a {
+    text-decoration: none;
+  }
+
+  .mapboxgl-popup-content a:focus {
+    outline: none;
   }
 </style>

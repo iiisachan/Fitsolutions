@@ -86,9 +86,11 @@
     max-height: 50vh;
   }
 
-  .header-content p {
+  .header-content p,
+  .paragraphs p {
     font-size: 24px;
     font-weight: normal;
+    color: black;
   }
 
   .header-image,
@@ -127,7 +129,7 @@
     background-color: lightgray;
     width: 100%;
     margin: 0;
-    padding: 60px 20%;
+    padding: 60px 10%;
   }
 
   .paragraphs p {
@@ -166,6 +168,10 @@
       justify-content: flex-start;
       width: 40%;
       min-height: 400px;
+    }
+
+    .body-content img {
+      width: 70%;
     }
   }
 </style>
