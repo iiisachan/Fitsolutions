@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { initializeApp } from 'firebase/app'
 
 import {
   faBars,
@@ -10,7 +9,14 @@ import {
   faChevronUp,
   faArrowRight,
   faPlus,
+<<<<<<< HEAD
   faHeart as fasHeart
+=======
+  faHeart as fasHeart,
+  faHeartPulse,
+  faDumbbell,
+  faCreditCard
+>>>>>>> 8578fb47161ab1a6739b317248df0a6f8a0dffde
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faGoogle,
@@ -19,11 +25,16 @@ import {
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
 
+<<<<<<< HEAD
 import {
   faCircleUser,
   faHeart,
   faTrashCan
 } from '@fortawesome/free-regular-svg-icons'
+=======
+
+import { faCircleUser, faHeart } from '@fortawesome/free-regular-svg-icons'
+>>>>>>> 8578fb47161ab1a6739b317248df0a6f8a0dffde
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBIGRDaQGgWIIxfkfReanmslN9jGkqO_B0',
@@ -49,7 +60,12 @@ library.add(
   faHeart,
   fasHeart,
   faPlus,
+<<<<<<< HEAD
   faTrashCan
+=======
+  faHeartPulse,
+  faCreditCard
+>>>>>>> 8578fb47161ab1a6739b317248df0a6f8a0dffde
 )
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -58,8 +74,6 @@ import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
-initializeApp(firebaseConfig)
 
 createApp(App)
   .use(router)

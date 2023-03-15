@@ -8,17 +8,16 @@
       class="btn btn-primary"
       @click="showModal = true"
     >
-      Visa kundkorg ({{ cartItems.length }})
+      Visa varukorg ({{ cartItems.length }})
     </b-button>
-    <b-modal v-model="showModal" title="Shopping cart">
+    <b-modal v-model="showModal" title="Shopping cart" :hide-footer="true">
       <div class="modal-content">
-        <div class="modal-header">
-          <!-- <h5 class="modal-title">Shopping cart</h5> -->
+        <div>
           <button type="button" class="close" @click="showModal = false">
             <span>&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div>
           <table class="table">
             <tbody>
               <tr v-for="(item, index) in cartItems" :key="index">
@@ -41,15 +40,22 @@
             </tbody>
           </table>
         </div>
+
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            @click="showModal = false"
-          >
-            Fortsätt handla
-          </button>
-          <button type="button" class="btn btn-primary">Gå till kassan</button>
+          <div v-if="cartItems.length > 0">
+            <router-link to="./checkout">
+              <button type="button" class="btn btn-primary">Till kassan</button>
+            </router-link>
+          </div>
+          <div v-else>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              @click="showModal = false"
+            >
+              Gå tillbaka
+            </button>
+          </div>
         </div>
       </div>
     </b-modal>
@@ -68,9 +74,9 @@
           />
         </div>
         <div class="product-info">
-          <h3>{{ product.produkt }}</h3>
-          <p>{{ product.färg }}</p>
-          <p>{{ product.pris }} kr</p>
+          <h3 class="h3-rubrik">{{ product.produkt }}</h3>
+          <p class="p-class">{{ product.färg }}</p>
+          <p class="p-class">{{ product.pris }} kr</p>
           <button class="varukorg" @click="addToCart(product)">
             Lägg till i varukorgen
           </button>
@@ -176,13 +182,13 @@
     align-items: center;
   }
 
-  h3 {
+  .h3-rubrik {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 500;
   }
 
-  p {
+  .p-class {
     margin: 0.5rem 0 0;
     font-size: 0.9rem;
     color: #999;

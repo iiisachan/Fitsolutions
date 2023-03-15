@@ -12,26 +12,31 @@
           tag="article"
           style="max-width: 20rem"
           img-height="300px"
-        />
-
-        <b-card-text>
-          I vår e-handdel kan du köpaa vår senate kollektion.
-        </b-card-text>
-      </router-link>
-      <b-card
-        title="Ta del av gym i närheten."
-        img-src="assets/pullup-img.jpg"
-        img-alt="Man that does a pullup."
-        img-top
-        tag="article"
-        style="max-width: 20rem"
-        img-height="300px"
+        >
+          <b-card-text>
+            I vår e-handdel kan du köpaa vår senate kollektion.
+          </b-card-text>
+        </b-card></router-link
       >
-        <b-card-text>
-          Hos oss kan du ta del av flera olika gym i närheten av dig. För att
-          underlätta för just din träning.
-        </b-card-text>
-      </b-card>
+
+      <router-link to="/map">
+        <b-card
+          class="main-cards"
+          title="Ta del av gym i närheten."
+          img-src="assets/pullup-img.jpg"
+          img-alt="Man that does a pullup."
+          img-top
+          tag="article"
+          style="max-width: 20rem"
+          img-height="300px"
+        >
+          <b-card-text>
+            Hos oss kan du ta del av flera olika gym i närheten av dig. För att
+            underlätta för just din träning.
+          </b-card-text>
+        </b-card></router-link
+      >
+
       <b-card
         class="main-cards"
         title="Tips & inspiration"
@@ -78,6 +83,7 @@
   .main-cards {
     box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    min-height: 480px;
   }
   .card-group {
     color: black;
