@@ -21,10 +21,8 @@
         <img src="assets/person-jumping.jpg" alt="Person uses jumping rope" />
         <div class="paragraphs">
           <p>
-            Med FitSolutions behöver du inte oroa dig för att hitta ett gym som
-            passar dig eller träningsprogram igen! Vi erbjuder dig möjligheten
-            att hitta gym i din närhet och det medföljer även recensioner,
-            vägbeskrivning och ett betyg på ditt valda gym.
+            Med FitSolutions behöver du inte oroa dig för att inte hitta ett bra
+            gym eller träningsprogram som passar dig.
           </p>
           <p>
             Eftersom att vi alla har olika mål med vår träning hjälper vi dig
