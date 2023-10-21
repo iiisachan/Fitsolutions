@@ -75,6 +75,8 @@
     methods: {
       submitForm() {
         this.showModal = true
+        this.cardholdername = ''
+        this.cardnumber = ''
       }
     }
   }
